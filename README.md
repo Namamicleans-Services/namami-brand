@@ -37,7 +37,7 @@ presets: [require("@namami/tokens/tailwind-preset")],
 @import "@namami/tokens/theme-v4.css";
 ```
 
-**Fonts.** Load with `next/font/google` (`Poppins` 600 as `--font-poppins`, `Mukta` 400/600 as `--font-mukta`, subsets `latin` + `devanagari`, `display: 'swap'`) or `@fontsource` on Vite. Never `@import` Google Fonts in CSS.
+**Fonts.** Load with `next/font/google` (`Poppins` 600 as `--font-poppins`, `Mukta` 400/600 as `--font-mukta`, subsets `latin` + `devanagari`, `display: 'swap'`) or `@fontsource` on Vite. Put the font `variable` classes on **`<html>`**, not `<body>`: the token font stacks are defined on `:root` and can only see variables set on `<html>`. Never `@import` Google Fonts in CSS.
 
 **Booking status**
 
