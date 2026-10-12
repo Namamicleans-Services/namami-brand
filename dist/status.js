@@ -1,4 +1,4 @@
-/* @namami/tokens 1.1.0 — generated. Do not edit. */
+/* @namami/tokens 1.2.0 — generated. Do not edit. */
 export const BOOKING_STATUS = Object.freeze({
   "received": {
     "family": "upcoming",
