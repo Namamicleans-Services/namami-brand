@@ -6,17 +6,13 @@ The brand book (voice, Hindi rules, imagery, print, uniform) lives in the Namami
 
 ## Install
 
-Pinned to a version tag, from this private repo:
+Pinned to a version tag, from this repo (public: it holds only token values, no secrets or logos):
 
 ```json
 "@namami/tokens": "github:Namamicleans-Services/namami-brand#v1.1.0"
 ```
 
-CI needs read access: add a fine-grained token with read-only Contents access to this repo as the `BRAND_REPO_TOKEN` secret, and before `npm ci`:
-
-```yaml
-- run: git config --global url."https://x-access-token:${{ secrets.BRAND_REPO_TOKEN }}@github.com/".insteadOf "https://github.com/"
-```
+No tokens or CI secrets are needed.
 
 ## Use
 
