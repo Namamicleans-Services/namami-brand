@@ -1,0 +1,24 @@
+/* @namami/tokens 1.1.0 — generated from tokens.json by scripts/build.mjs. Do not edit. */
+/* For Tailwind v3 apps whose config reads colours as hsl(var(--x)). Import after tokens.css. */
+:root {
+  --background: var(--surface-hsl);
+  --foreground: var(--ink-hsl);
+  --card: var(--surface-raised-hsl);
+  --card-foreground: var(--ink-hsl);
+  --popover: var(--surface-raised-hsl);
+  --popover-foreground: var(--ink-hsl);
+  --primary: var(--brand-hsl);
+  --primary-foreground: var(--on-brand-hsl);
+  --secondary: var(--brand-soft-hsl);
+  --secondary-foreground: var(--brand-soft-ink-hsl);
+  --muted: var(--surface-sunken-hsl);
+  --muted-foreground: var(--ink-muted-hsl);
+  --accent: var(--brand-soft-hsl);
+  --accent-foreground: var(--brand-soft-ink-hsl);
+  --destructive: var(--danger-hsl);
+  --destructive-foreground: var(--on-danger-hsl);
+  --border: var(--line-hsl);
+  --input: var(--control-border-hsl);
+  --ring: var(--focus-hsl);
+  --radius: var(--radius-md);
+}

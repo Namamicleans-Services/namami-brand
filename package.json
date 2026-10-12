@@ -1,0 +1,22 @@
+{
+  "name": "@namami/tokens",
+  "version": "1.1.0",
+  "description": "Namami Cleans brand tokens: the single source of colour, type, spacing, radius and booking-status styling for every Namami Cleans product.",
+  "private": true,
+  "type": "module",
+  "files": ["dist", "bin", "tokens.json"],
+  "bin": { "namami-lint": "bin/namami-lint.mjs" },
+  "exports": {
+    "./tokens.css": "./dist/tokens.css",
+    "./shadcn-v3.css": "./dist/shadcn-v3.css",
+    "./theme-v4.css": "./dist/theme-v4.css",
+    "./tailwind-preset": "./dist/tailwind-preset.cjs",
+    "./status": { "types": "./dist/status.d.ts", "default": "./dist/status.js" },
+    "./tokens.json": "./tokens.json"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check-contrast.mjs"
+  },
+  "engines": { "node": ">=18" }
+}

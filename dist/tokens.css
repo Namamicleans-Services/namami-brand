@@ -1,0 +1,215 @@
+/* @namami/tokens 1.1.0 — generated from tokens.json by scripts/build.mjs. Do not edit. */
+:root, [data-theme="light"] {
+  --surface: #f6f3ef; /* Page background in every product. A warm linen white that matches the ground of our AI service images, so images and page read as one surface. */
+  --surface-hsl: 34.3 28% 95.1%;
+  --surface-raised: #ffffff; /* Cards, sheets, dialogs, table rows, inputs. Sits on `surface`. */
+  --surface-raised-hsl: 0 0% 100%;
+  --surface-sunken: #ede8e1; /* Wells and grouped-list backgrounds, admin side panels, skeleton loaders. */
+  --surface-sunken-hsl: 35 25% 90.6%;
+  --surface-image: #f2ede9; /* Ground behind every AI service/category image (tiles, banners). Same value in both themes on purpose: our images are opaque with this exact background, so the tile looks like one object in light and dark. */
+  --surface-image-hsl: 26.7 25.7% 93.1%;
+  --line: #e2dcd4; /* Hairline dividers and card borders. Decorative only, never the sole boundary of a control. */
+  --line-hsl: 34.3 19.4% 85.9%;
+  --control-border: #8a8379; /* Borders of inputs, checkboxes, selects and secondary buttons (3:1 on `surface` and `surface-raised`). */
+  --control-border-hsl: 35.3 6.8% 50.8%;
+  --ink: #0e2b33; /* Primary text and icons on `surface`, `surface-raised`, `surface-sunken`. */
+  --ink-hsl: 193 56.9% 12.7%;
+  --ink-muted: #4b5f64; /* Secondary text: meta lines, helper text, placeholders, timestamps, table secondary columns. On `surface`, `surface-raised`, `surface-sunken`. Never the only carrier of something a person must act on (outdoors it drops below 7:1). */
+  --ink-muted-hsl: 192 14.3% 34.3%;
+  --brand: #0b4251; /* Namami teal, the logo's own colour, and THE interactive colour: primary buttons, links (always underlined), checkboxes, radios, toggles, progress, selected tabs, active nav, app headers. Light theme uses the exact logo teal; dark lightens it so it stays visible. */
+  --brand-hsl: 192.9 76.1% 18%;
+  --brand-hover: #072f3a; /* Hover/pressed state of `brand` fills. */
+  --brand-hover-hsl: 192.9 78.5% 12.7%;
+  --on-brand: #ffffff; /* Text and icons on `brand` and `brand-hover` fills. */
+  --on-brand-hsl: 0 0% 100%;
+  --brand-soft: #e2eef0; /* Selected rows, active chips, highlighted list items. Text on it is `brand` (light) / `ink` (dark). */
+  --brand-soft-hsl: 188.6 31.8% 91.4%;
+  --brand-soft-ink: #0b4251; /* Text on `brand-soft`. */
+  --brand-soft-ink-hsl: 192.9 76.1% 18%;
+  --uniform: #127578; /* Uniform teal: the dyed colour of Namamian uniforms and of the workers in our service images. FABRIC AND IMAGERY ONLY: never use it for interface controls, links or text (it blurs with `brand` on screen). Final value will be matched to the approved fabric shade card. */
+  --uniform-hsl: 181.8 73.9% 27.1%;
+  --on-uniform: #ffffff; /* Text on `uniform` fills in print and physical items (badges, lanyard print). Not used in the apps. */
+  --on-uniform-hsl: 0 0% 100%;
+  --gold: #f1c764; /* Namami gold, the logo's own colour. Offers, savings, ratings, earnings: the one highlight per screen. A fill, never text on light surfaces, never a status. */
+  --gold-hsl: 42.1 83.4% 66.9%;
+  --on-gold: #0b4251; /* Text and icons on `gold` fills. On `gold-soft` use `gold-soft-ink`. */
+  --on-gold-hsl: 192.9 76.1% 18%;
+  --gold-soft: #fbf1d6; /* Quiet gold background: offer strips, 'Popular' ribbons, savings rows. */
+  --gold-soft-hsl: 43.8 82.2% 91.2%;
+  --gold-soft-ink: #5c4410; /* Text on `gold-soft`. */
+  --gold-soft-ink-hsl: 41.1 70.4% 21.2%;
+  --focus: #0b4251; /* Focus ring: 2px solid, 2px offset, on every focusable element in every product, on `surface`, `surface-raised`, `surface-sunken` (≥7:1). */
+  --focus-hsl: 192.9 76.1% 18%;
+  --focus-on-brand: #f1c764; /* Focus ring for controls sitting on a `brand` fill (icon buttons in the teal app header). */
+  --focus-on-brand-hsl: 42.1 83.4% 66.9%;
+  --success: #1b6e45; /* Success text and icons (payment received, job completed). On `surface`, `surface-raised`. */
+  --success-hsl: 150.4 60.6% 26.9%;
+  --success-soft: #e1f2e8; /* Success notice/badge background. Text on it: `success-ink`. */
+  --success-soft-hsl: 144.7 39.5% 91.6%;
+  --success-ink: #14532f; /* Text on `success-soft`. */
+  --success-ink-hsl: 145.7 61.2% 20.2%;
+  --warning: #9a5300; /* Warning text and icons (slot filling up, payment pending). On `surface`, `surface-raised`. */
+  --warning-hsl: 32.3 100% 30.2%;
+  --warning-soft: #fdeedc; /* Warning notice/badge background. Text on it: `warning-ink`. */
+  --warning-soft-hsl: 32.7 89.2% 92.7%;
+  --warning-ink: #6e3b00; /* Text on `warning-soft`. */
+  --warning-ink-hsl: 32.2 100% 21.6%;
+  --danger: #b42318; /* Error text, destructive buttons, validation messages. On `surface`, `surface-raised`. */
+  --danger-hsl: 4.2 76.5% 40%;
+  --on-danger: #ffffff; /* Text on `danger` fills. */
+  --on-danger-hsl: 0 0% 100%;
+  --danger-soft: #fde8e6; /* Error notice/badge background. Text on it: `danger-ink`. */
+  --danger-soft-hsl: 5.2 85.2% 94.7%;
+  --danger-ink: #8a1a12; /* Text on `danger-soft`. */
+  --danger-ink-hsl: 4 76.9% 30.6%;
+  --info: #1f5f8b; /* Informational text and icons. On `surface`, `surface-raised`. */
+  --info-hsl: 204.4 63.5% 33.3%;
+  --info-soft: #e3eef7; /* Info notice background. Text on it: `info-ink`. */
+  --info-soft-hsl: 207 55.6% 92.9%;
+  --info-ink: #15466a; /* Text on `info-soft`. */
+  --info-ink-hsl: 205.4 66.9% 24.9%;
+  --status-upcoming-bg: #ffffff; /* Status family UPCOMING (backend: received, scheduled, rescheduled): booked, not started. Outlined pill background. */
+  --status-upcoming-bg-hsl: 0 0% 100%;
+  --status-upcoming-border: #0b4251; /* 1.5px outline of the UPCOMING pill (the outline itself is the cue that tells it apart). */
+  --status-upcoming-border-hsl: 192.9 76.1% 18%;
+  --status-upcoming-ink: #0b4251; /* Text/icon on `status-upcoming-bg`. */
+  --status-upcoming-ink-hsl: 192.9 76.1% 18%;
+  --status-live-bg: #0b4251; /* Status family LIVE (backend: ongoing): a Namamian is working right now. Solid brand-teal pill. */
+  --status-live-bg-hsl: 192.9 76.1% 18%;
+  --status-live-ink: #ffffff; /* Text/icon on `status-live-bg`. */
+  --status-live-ink-hsl: 0 0% 100%;
+  --status-done-bg: #a8dcbc; /* Status family DONE (backend: completed). Solid green pill. */
+  --status-done-bg-hsl: 143.1 42.6% 76.1%;
+  --status-done-ink: #0b3a21; /* Text/icon on `status-done-bg`. */
+  --status-done-ink-hsl: 148.1 68.1% 13.5%;
+  --status-stopped-bg: #56656a; /* Status family STOPPED (backend: cancelled, expired, lapsed): ended without service. Solid slate pill; the word and icon say which. */
+  --status-stopped-bg-hsl: 195 10.4% 37.6%;
+  --status-stopped-ink: #ffffff; /* Text/icon on `status-stopped-bg`. */
+  --status-stopped-ink-hsl: 0 0% 100%;
+  --shadow-sm: 0 1px 2px rgba(11, 66, 81, 0.08);
+  --shadow-md: 0 6px 16px rgba(11, 66, 81, 0.10);
+  --shadow-lg: 0 16px 40px rgba(11, 66, 81, 0.16);
+}
+/* Dark values exist but dark mode is not shipped in v1.1. */
+[data-theme="dark"] {
+  --surface: #0b1a1e;
+  --surface-hsl: 192.6 46.3% 8%;
+  --surface-raised: #12262b;
+  --surface-raised-hsl: 192 41% 12%;
+  --surface-sunken: #081316;
+  --surface-sunken-hsl: 192.9 46.7% 5.9%;
+  --surface-image: #f2ede9;
+  --surface-image-hsl: 26.7 25.7% 93.1%;
+  --line: #22373d;
+  --line-hsl: 193.3 28.4% 18.6%;
+  --control-border: #62797f;
+  --control-border-hsl: 192.4 12.9% 44.1%;
+  --ink: #e9f0f1;
+  --ink-hsl: 187.5 22.2% 92.9%;
+  --ink-muted: #a8babe;
+  --ink-muted-hsl: 190.9 14.5% 70.2%;
+  --brand: #6fbcc3;
+  --brand-hsl: 185 41.2% 60%;
+  --brand-hover: #8fcdd3;
+  --brand-hover-hsl: 185.3 43.6% 69.4%;
+  --on-brand: #062228;
+  --on-brand-hsl: 190.6 73.9% 9%;
+  --brand-soft: #173840;
+  --brand-soft-hsl: 191.7 47.1% 17.1%;
+  --brand-soft-ink: #e9f0f1;
+  --brand-soft-ink-hsl: 187.5 22.2% 92.9%;
+  --uniform: #5fc4c4;
+  --uniform-hsl: 180 46.1% 57.1%;
+  --on-uniform: #062228;
+  --on-uniform-hsl: 190.6 73.9% 9%;
+  --gold: #f1c764;
+  --gold-hsl: 42.1 83.4% 66.9%;
+  --on-gold: #0b4251;
+  --on-gold-hsl: 192.9 76.1% 18%;
+  --gold-soft: #3a3220;
+  --gold-soft-hsl: 41.5 28.9% 17.6%;
+  --gold-soft-ink: #f6dc9c;
+  --gold-soft-ink-hsl: 42.7 83.3% 78.8%;
+  --focus: #6fbcc3;
+  --focus-hsl: 185 41.2% 60%;
+  --focus-on-brand: #062228;
+  --focus-on-brand-hsl: 190.6 73.9% 9%;
+  --success: #5fcf95;
+  --success-hsl: 148.9 53.8% 59.2%;
+  --success-soft: #123425;
+  --success-soft-hsl: 153.5 48.6% 13.7%;
+  --success-ink: #bdeccf;
+  --success-ink-hsl: 143 55.3% 83.3%;
+  --warning: #f0a54a;
+  --warning-hsl: 32.9 84.7% 61.6%;
+  --warning-soft: #3a2810;
+  --warning-soft-hsl: 34.3 56.8% 14.5%;
+  --warning-ink: #ffd9a8;
+  --warning-ink-hsl: 33.8 100% 82.9%;
+  --danger: #ff8a7f;
+  --danger-hsl: 5.2 100% 74.9%;
+  --on-danger: #2a0806;
+  --on-danger-hsl: 3.3 75% 9.4%;
+  --danger-soft: #3d1513;
+  --danger-soft-hsl: 2.9 52.5% 15.7%;
+  --danger-ink: #ffc9c3;
+  --danger-ink-hsl: 6 100% 88.2%;
+  --info: #7fb9e3;
+  --info-hsl: 205.2 64.1% 69.4%;
+  --info-soft: #132a3b;
+  --info-soft-hsl: 205.5 51.3% 15.3%;
+  --info-ink: #c6e0f4;
+  --info-ink-hsl: 206.1 67.6% 86.7%;
+  --status-upcoming-bg: #12262b;
+  --status-upcoming-bg-hsl: 192 41% 12%;
+  --status-upcoming-border: #6fbcc3;
+  --status-upcoming-border-hsl: 185 41.2% 60%;
+  --status-upcoming-ink: #a9dde1;
+  --status-upcoming-ink-hsl: 184.3 48.3% 77.3%;
+  --status-live-bg: #6fbcc3;
+  --status-live-bg-hsl: 185 41.2% 60%;
+  --status-live-ink: #062228;
+  --status-live-ink-hsl: 190.6 73.9% 9%;
+  --status-done-bg: #3f9463;
+  --status-done-bg-hsl: 145.4 40.3% 41.4%;
+  --status-done-ink: #031a0c;
+  --status-done-ink-hsl: 143.5 79.3% 5.7%;
+  --status-stopped-bg: #4a5659;
+  --status-stopped-bg-hsl: 192 9.2% 32%;
+  --status-stopped-ink: #f2f6f7;
+  --status-stopped-ink-hsl: 192 23.8% 95.9%;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.55);
+}
+:root {
+  --space-0\.5: 2px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  --control-sm: 36px;
+  --control-md: 44px;
+  --control-lg: 52px;
+  --control-xl: 56px;
+  --icon-sm: 16px;
+  --icon-md: 20px;
+  --icon-lg: 24px;
+  --content-max: 1200px;
+  --reading-max: 680px;
+  --font-display: var(--font-poppins, "Poppins"), var(--font-mukta, "Mukta"), system-ui, sans-serif;
+  --font-text: var(--font-mukta, "Mukta"), system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}

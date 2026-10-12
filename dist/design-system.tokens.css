@@ -1,0 +1,256 @@
+/* Namami Cleans — generated from tokens.json */
+:root, [data-theme="light"] {
+  --surface: #f6f3ef; /* Page background in every product. A warm linen white that matches the ground of our AI service images, so images and page read as one surface. */
+  --surface-raised: #ffffff; /* Cards, sheets, dialogs, table rows, inputs. Sits on `surface`. */
+  --surface-sunken: #ede8e1; /* Wells and grouped-list backgrounds, admin side panels, skeleton loaders. */
+  --surface-image: #f2ede9; /* Ground behind every AI service/category image (tiles, banners). Same value in both themes on purpose: our images are opaque with this exact background, so the tile looks like one object in light and dark. */
+  --line: #e2dcd4; /* Hairline dividers and card borders. Decorative only, never the sole boundary of a control. */
+  --control-border: #8a8379; /* Borders of inputs, checkboxes, selects and secondary buttons (3:1 on `surface` and `surface-raised`). */
+  --ink: #0e2b33; /* Primary text and icons on `surface`, `surface-raised`, `surface-sunken`. */
+  --ink-muted: #4b5f64; /* Secondary text: meta lines, helper text, placeholders, timestamps, table secondary columns. On `surface`, `surface-raised`, `surface-sunken`. Never the only carrier of something a person must act on (outdoors it drops below 7:1). */
+  --brand: #0b4251; /* Namami teal, the logo's own colour, and THE interactive colour: primary buttons, links (always underlined), checkboxes, radios, toggles, progress, selected tabs, active nav, app headers. Light theme uses the exact logo teal; dark lightens it so it stays visible. */
+  --brand-hover: #072f3a; /* Hover/pressed state of `brand` fills. */
+  --on-brand: #ffffff; /* Text and icons on `brand` and `brand-hover` fills. */
+  --brand-soft: #e2eef0; /* Selected rows, active chips, highlighted list items. Text on it is `brand` (light) / `ink` (dark). */
+  --brand-soft-ink: #0b4251; /* Text on `brand-soft`. */
+  --uniform: #127578; /* Uniform teal: the dyed colour of Namamian uniforms and of the workers in our service images. FABRIC AND IMAGERY ONLY: never use it for interface controls, links or text (it blurs with `brand` on screen). Final value will be matched to the approved fabric shade card. */
+  --on-uniform: #ffffff; /* Text on `uniform` fills in print and physical items (badges, lanyard print). Not used in the apps. */
+  --gold: #f1c764; /* Namami gold, the logo's own colour. Offers, savings, ratings, earnings: the one highlight per screen. A fill, never text on light surfaces, never a status. */
+  --on-gold: #0b4251; /* Text and icons on `gold` fills. On `gold-soft` use `gold-soft-ink`. */
+  --gold-soft: #fbf1d6; /* Quiet gold background: offer strips, 'Popular' ribbons, savings rows. */
+  --gold-soft-ink: #5c4410; /* Text on `gold-soft`. */
+  --focus: #0b4251; /* Focus ring: 2px solid, 2px offset, on every focusable element in every product, on `surface`, `surface-raised`, `surface-sunken` (≥7:1). */
+  --focus-on-brand: #f1c764; /* Focus ring for controls sitting on a `brand` fill (icon buttons in the teal app header). */
+  --success: #1b6e45; /* Success text and icons (payment received, job completed). On `surface`, `surface-raised`. */
+  --success-soft: #e1f2e8; /* Success notice/badge background. Text on it: `success-ink`. */
+  --success-ink: #14532f; /* Text on `success-soft`. */
+  --warning: #9a5300; /* Warning text and icons (slot filling up, payment pending). On `surface`, `surface-raised`. */
+  --warning-soft: #fdeedc; /* Warning notice/badge background. Text on it: `warning-ink`. */
+  --warning-ink: #6e3b00; /* Text on `warning-soft`. */
+  --danger: #b42318; /* Error text, destructive buttons, validation messages. On `surface`, `surface-raised`. */
+  --on-danger: #ffffff; /* Text on `danger` fills. */
+  --danger-soft: #fde8e6; /* Error notice/badge background. Text on it: `danger-ink`. */
+  --danger-ink: #8a1a12; /* Text on `danger-soft`. */
+  --info: #1f5f8b; /* Informational text and icons. On `surface`, `surface-raised`. */
+  --info-soft: #e3eef7; /* Info notice background. Text on it: `info-ink`. */
+  --info-ink: #15466a; /* Text on `info-soft`. */
+  --status-upcoming-bg: #ffffff; /* Status family UPCOMING (backend: received, scheduled, rescheduled): booked, not started. Outlined pill background. */
+  --status-upcoming-border: #0b4251; /* 1.5px outline of the UPCOMING pill (the outline itself is the cue that tells it apart). */
+  --status-upcoming-ink: #0b4251; /* Text/icon on `status-upcoming-bg`. */
+  --status-live-bg: #0b4251; /* Status family LIVE (backend: ongoing): a Namamian is working right now. Solid brand-teal pill. */
+  --status-live-ink: #ffffff; /* Text/icon on `status-live-bg`. */
+  --status-done-bg: #a8dcbc; /* Status family DONE (backend: completed). Solid green pill. */
+  --status-done-ink: #0b3a21; /* Text/icon on `status-done-bg`. */
+  --status-stopped-bg: #56656a; /* Status family STOPPED (backend: cancelled, expired, lapsed): ended without service. Solid slate pill; the word and icon say which. */
+  --status-stopped-ink: #ffffff; /* Text/icon on `status-stopped-bg`. */
+  --shadow-sm: 0 1px 2px rgba(11, 66, 81, 0.08); /* Resting cards on `surface`, image tiles. */
+  --shadow-md: 0 6px 16px rgba(11, 66, 81, 0.10); /* Raised/hover cards, dropdowns, the floating bottom nav. */
+  --shadow-lg: 0 16px 40px rgba(11, 66, 81, 0.16); /* Bottom sheets, dialogs, toasts. */
+}
+[data-theme="dark"] {
+  --surface: #0b1a1e;
+  --surface-raised: #12262b;
+  --surface-sunken: #081316;
+  --surface-image: #f2ede9;
+  --line: #22373d;
+  --control-border: #62797f;
+  --ink: #e9f0f1;
+  --ink-muted: #a8babe;
+  --brand: #6fbcc3;
+  --brand-hover: #8fcdd3;
+  --on-brand: #062228;
+  --brand-soft: #173840;
+  --brand-soft-ink: #e9f0f1;
+  --uniform: #5fc4c4;
+  --on-uniform: #062228;
+  --gold: #f1c764;
+  --on-gold: #0b4251;
+  --gold-soft: #3a3220;
+  --gold-soft-ink: #f6dc9c;
+  --focus: #6fbcc3;
+  --focus-on-brand: #062228;
+  --success: #5fcf95;
+  --success-soft: #123425;
+  --success-ink: #bdeccf;
+  --warning: #f0a54a;
+  --warning-soft: #3a2810;
+  --warning-ink: #ffd9a8;
+  --danger: #ff8a7f;
+  --on-danger: #2a0806;
+  --danger-soft: #3d1513;
+  --danger-ink: #ffc9c3;
+  --info: #7fb9e3;
+  --info-soft: #132a3b;
+  --info-ink: #c6e0f4;
+  --status-upcoming-bg: #12262b;
+  --status-upcoming-border: #6fbcc3;
+  --status-upcoming-ink: #a9dde1;
+  --status-live-bg: #6fbcc3;
+  --status-live-ink: #062228;
+  --status-done-bg: #3f9463;
+  --status-done-ink: #031a0c;
+  --status-stopped-bg: #4a5659;
+  --status-stopped-ink: #f2f6f7;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.55);
+}
+:root {
+  --space-0\.5: 2px; /* Icon-to-text nudge inside badges. */
+  --space-1: 4px; /* Gap between a label and its value; badge vertical padding. */
+  --space-2: 8px; /* Gap between icon and label; between chips. */
+  --space-3: 12px; /* Inner padding of compact cards and list rows; gap in tile grids. */
+  --space-4: 16px; /* Screen side gutter on mobile; card padding; gap between form fields. */
+  --space-5: 20px; /* Padding inside bottom sheets and dialogs. */
+  --space-6: 24px; /* Gap between sections inside a screen; admin page side gutter. */
+  --space-8: 32px; /* Gap between major blocks; website card padding. */
+  --space-10: 40px; /* Website section padding on mobile. */
+  --space-12: 48px; /* Website section padding on tablet. */
+  --space-16: 64px; /* Website section padding on desktop. */
+  --radius-xs: 4px; /* Admin table chips, keyboard hints. The only sharp-ish corner. */
+  --radius-sm: 8px; /* Small buttons, checkboxes (6px inside), tooltips. */
+  --radius-md: 12px; /* Buttons, inputs, selects, notices. Map shadcn radius-sm/md/lg explicitly to radius-sm/md/lg: never let shadcn derive off-scale values (it computes 10px from a 12px base). */
+  --radius-lg: 16px; /* Cards, image tiles, banners. */
+  --radius-xl: 24px; /* Bottom sheets (top corners), hero cards, modals on mobile. */
+  --radius-full: 9999px; /* Status pills, avatars, the floating bottom nav, toggles. */
+  --control-sm: 36px; /* Dense admin tables and toolbars only (mouse users). */
+  --control-md: 44px; /* Default buttons, inputs, list rows. Minimum touch target in the customer and captain apps. */
+  --control-lg: 52px; /* Primary action at the bottom of a mobile screen (Book now, Start job, Pay). */
+  --control-xl: 56px; /* Every action in the Namamian (captain) app, with at least 12px between targets: tapped with gloves on. */
+  --icon-sm: 16px; /* Icons inside small text, badges, table cells. */
+  --icon-md: 20px; /* Default icon size next to body text and in buttons. */
+  --icon-lg: 24px; /* Navigation icons (bottom nav, app header). */
+  --content-max: 1200px; /* Max content width on the website and admin pages. */
+  --reading-max: 680px; /* Max width of long text (policies, blog). */
+  --font-display: "Poppins", "Mukta", system-ui, sans-serif;
+  --font-text: "Mukta", system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --text-display-xl: 700 40px/46px var(--font-display); /* Website hero headline only, one per page. The only place Poppins 700 is loaded. */
+  --text-display: 600 30px/36px var(--font-display); /* Website section heads, customer-app service title. Poppins 600. */
+  --text-title-1: 600 22px/28px var(--font-display); /* Screen titles in the customer and captain apps; admin page titles. */
+  --text-title-2: 600 18px/24px var(--font-display); /* Section headings inside a screen; dialog and sheet titles. */
+  --text-title-3: 600 16px/22px var(--font-display); /* Card titles, service names in lists, admin card headers. */
+  --text-price: 600 18px/24px var(--font-display); /* Prices and totals. Always with `font-variant-numeric: tabular-nums` and Indian digit grouping (₹1,23,456). */
+  --text-button: 600 16px/20px var(--font-text); /* Button and tab labels, set in Mukta 600 (not Poppins). Sentence case. */
+  --text-overline: 600 13px/18px var(--font-display); /* Small uppercase labels above values (admin group labels, form sections). Latin only: never uppercase or letter-space Hindi. */
+  --text-body-lg: 400 18px/28px var(--font-text); /* Website paragraphs, onboarding copy. */
+  --text-body: 400 16px/24px var(--font-text); /* Default text in every product. Minimum size for anything a captain must read in the field. */
+  --text-body-strong: 600 16px/24px var(--font-text); /* Emphasis inside body text; key facts (slot time, address line 1). */
+  --text-small: 400 14px/20px var(--font-text); /* Meta lines under titles, helper text, admin table cells. Customer and admin only: in the Namamian app the minimum is `field-small`. */
+  --text-caption: 500 14px/20px var(--font-text); /* Timestamps, credits, legal footers. 14px is the absolute minimum size for any text in any product. */
+  --text-field: 400 18px/28px var(--font-text); /* Default text in the Namamian (captain) app: used outdoors, in sunlight, often in Hindi. */
+  --text-field-strong: 600 18px/28px var(--font-text); /* Key facts in the Namamian app: slot time, address line, amounts. */
+  --text-field-small: 400 16px/26px var(--font-text); /* Smallest text allowed in the Namamian app. */
+}
+.display-xl {
+  font-family: var(--font-display);
+  font-size: 40px;
+  line-height: 46px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.display {
+  font-family: var(--font-display);
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.title-1 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.title-2 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.title-3 {
+  font-family: var(--font-display);
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.price {
+  font-family: var(--font-display);
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.button {
+  font-family: var(--font-text);
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.overline {
+  font-family: var(--font-display);
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+.body-lg {
+  font-family: var(--font-text);
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.body {
+  font-family: var(--font-text);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.body-strong {
+  font-family: var(--font-text);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.small {
+  font-family: var(--font-text);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.caption {
+  font-family: var(--font-text);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.field {
+  font-family: var(--font-text);
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.field-strong {
+  font-family: var(--font-text);
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.field-small {
+  font-family: var(--font-text);
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
