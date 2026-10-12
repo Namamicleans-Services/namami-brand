@@ -101,12 +101,35 @@ const preset = {
       fontSize: Object.fromEntries(typeStyles.map((s) => [s.name, [s.fontSize, { lineHeight: s.lineHeight, fontWeight: String(s.fontWeight), ...(s.letterSpacing ? { letterSpacing: s.letterSpacing } : {}) }]])),
       height: { 'control-sm': 'var(--control-sm)', 'control-md': 'var(--control-md)', 'control-lg': 'var(--control-lg)', 'control-xl': 'var(--control-xl)' },
       minHeight: { 'control-sm': 'var(--control-sm)', 'control-md': 'var(--control-md)', 'control-lg': 'var(--control-lg)', 'control-xl': 'var(--control-xl)' },
+      width: { 'control-sm': 'var(--control-sm)', 'control-md': 'var(--control-md)', 'control-lg': 'var(--control-lg)', 'control-xl': 'var(--control-xl)' },
+      minWidth: { 'control-sm': 'var(--control-sm)', 'control-md': 'var(--control-md)', 'control-lg': 'var(--control-lg)', 'control-xl': 'var(--control-xl)' },
       boxShadow: { sm: 'var(--shadow-sm)', md: 'var(--shadow-md)', lg: 'var(--shadow-lg)' },
       maxWidth: { content: 'var(--content-max)', reading: 'var(--reading-max)' },
     },
   },
 };
 out('tailwind-preset.cjs', `/* @namami/tokens ${pkg.version} — generated. Do not edit. */\nmodule.exports = ${JSON.stringify(preset, null, 2)};\n`);
+
+// ── tailwind-merge config ───────────────────────────────────────────────────
+// cn()/twMerge assumes an unknown `text-*` is a colour, so `text-field-strong`
+// silently removed a button's `text-primary-foreground`. Declare the brand type
+// styles as font sizes and the control sizes as heights/widths.
+const controls = ['control-sm', 'control-md', 'control-lg', 'control-xl'];
+const twMergeConfig = {
+  extend: {
+    classGroups: {
+      'font-size': [{ text: typeStyles.map((s) => s.name) }],
+      h: [{ h: controls }],
+      'min-h': [{ 'min-h': controls }],
+      w: [{ w: controls }],
+      'min-w': [{ 'min-w': controls }],
+    },
+  },
+};
+out('tailwind-merge.js', `/* @namami/tokens ${pkg.version} — generated. Do not edit. */\n` +
+  `/** Pass to extendTailwindMerge() (tailwind-merge v2 or v3) so cn() understands brand utilities. */\n` +
+  `export const namamiTwMergeConfig = ${JSON.stringify(twMergeConfig, null, 2)};\n`);
+out('tailwind-merge.d.ts', `export declare const namamiTwMergeConfig: {\n  extend: { classGroups: Record<string, Array<Record<string, string[]>>> };\n};\n`);
 
 // ── Booking status map ──────────────────────────────────────────────────────
 const STATUS = {

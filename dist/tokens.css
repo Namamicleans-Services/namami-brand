@@ -1,4 +1,4 @@
-/* @namami/tokens 1.1.0 — generated from tokens.json by scripts/build.mjs. Do not edit. */
+/* @namami/tokens 1.2.0 — generated from tokens.json by scripts/build.mjs. Do not edit. */
 :root, [data-theme="light"] {
   --surface: #f6f3ef; /* Page background in every product. A warm linen white that matches the ground of our AI service images, so images and page read as one surface. */
   --surface-hsl: 34.3 28% 95.1%;

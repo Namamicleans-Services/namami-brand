@@ -1,4 +1,4 @@
-/* @namami/tokens 1.1.0 — generated. Do not edit. */
+/* @namami/tokens 1.2.0 — generated. Do not edit. */
 module.exports = {
   "theme": {
     "extend": {
@@ -190,6 +190,18 @@ module.exports = {
         "control-xl": "var(--control-xl)"
       },
       "minHeight": {
+        "control-sm": "var(--control-sm)",
+        "control-md": "var(--control-md)",
+        "control-lg": "var(--control-lg)",
+        "control-xl": "var(--control-xl)"
+      },
+      "width": {
+        "control-sm": "var(--control-sm)",
+        "control-md": "var(--control-md)",
+        "control-lg": "var(--control-lg)",
+        "control-xl": "var(--control-xl)"
+      },
+      "minWidth": {
         "control-sm": "var(--control-sm)",
         "control-md": "var(--control-md)",
         "control-lg": "var(--control-lg)",

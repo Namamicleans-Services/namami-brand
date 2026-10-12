@@ -1,4 +1,4 @@
-/* @namami/tokens 1.1.0 — generated from tokens.json by scripts/build.mjs. Do not edit. */
+/* @namami/tokens 1.2.0 — generated from tokens.json by scripts/build.mjs. Do not edit. */
 /* For Tailwind v3 apps whose config reads colours as hsl(var(--x)). Import after tokens.css. */
 :root {
   --background: var(--surface-hsl);
