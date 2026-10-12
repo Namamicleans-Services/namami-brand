@@ -44,7 +44,13 @@ presets: [require("@namami/tokens/tailwind-preset")],
 ```ts
 import { BOOKING_STATUS, STATUS_FAMILY_CLASSES } from "@namami/tokens/status";
 const s = BOOKING_STATUS[booking.status]; // { family, icon, en, hi }
+<span className={cn("rounded-full border-2 px-3", STATUS_FAMILY_CLASSES[s.family])}>{s.en}</span>
 ```
+
+Two things every consumer must do, or pills silently lose their colour:
+
+- **Let Tailwind see the classes.** They live in `node_modules`, which Tailwind doesn't scan. Add `"./node_modules/@namami/tokens/dist/status.js"` to `content` (Tailwind 3) or `@source "../node_modules/@namami/tokens/dist/status.js";` (Tailwind 4).
+- **Give the pill a border width** (`border-2`). The family classes set only the border *colour*: transparent for live/done/stopped, an outline for upcoming.
 
 ## Utilities
 
