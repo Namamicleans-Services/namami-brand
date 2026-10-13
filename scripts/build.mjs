@@ -13,6 +13,11 @@ import { fileURLToPath } from 'node:url';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const tokens = JSON.parse(readFileSync(join(root, 'tokens.json'), 'utf8'));
 const pkg = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'));
+if (tokens.version !== pkg.version) {
+  // Both carry the release number; a bump must touch both (v1.2.0 shipped with tokens.json still at 1.1.0).
+  console.error(`tokens.json version ${tokens.version} != package.json version ${pkg.version}`);
+  process.exit(1);
+}
 const out = (name, text) => {
   mkdirSync(join(root, 'dist'), { recursive: true });
   writeFileSync(join(root, 'dist', name), text);
