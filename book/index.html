@@ -1,0 +1,634 @@
+<title>Namamicleans Brand Book</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap">
+<style>
+/* Layout: the book as a stack of landscape pages (like a printed guide), each one rule, set in the brand's own colours and type.
+   Single light theme on purpose: a brand book shows colours exactly as they print and render. */
+:root {
+  color-scheme: light;
+  --teal: #0B4251;      /* Namami Teal */
+  --action: #0F766E;    /* Action Teal */
+  --action-hover: #115E59;
+  --tint: #F0FDFA;
+  --gold: #EFC663;
+  --gold-soft: #FBF1D6;
+  --ink: #0E2B33;
+  --muted: #4B5F64;
+  --line: #E5E7EB;
+  --surface: #F9FAFB;
+  --white: #FFFFFF;
+  --success: #1B6E45;
+  --warning: #9A5300;
+  --danger: #B42318;
+  --info: #1F5F8B;
+  --uniform: #127578;
+  --display: "Poppins", "Mukta", system-ui, sans-serif;
+  --text: "Mukta", system-ui, sans-serif;
+  --page-pad: clamp(20px, 4vw, 56px);
+}
+* { box-sizing: border-box; }
+img { max-width: 100%; height: auto; }
+body {
+  margin: 0; background: #E9ECEF; color: var(--ink); font-family: var(--text); font-size: 17px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 24px 48px;
+}
+.book { max-width: 1180px; margin: 0 auto; display: grid; gap: 24px; }
+.page { background: var(--surface); border-radius: 18px; padding: var(--page-pad); display: grid; gap: 28px; align-content: start; min-width: 0; overflow: hidden; }
+.page.dark { background: var(--teal); color: var(--white); }
+.runner { display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: var(--muted); font-weight: 500; }
+.dark .runner { color: rgba(255,255,255,.75); }
+.runner .mark { display: flex; align-items: center; gap: 8px; }
+.runner img { height: 18px; }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+h2 { font-size: clamp(30px, 4vw, 44px); line-height: 1.08; font-weight: 600; }
+h3 { font-size: 19px; line-height: 1.3; font-weight: 600; }
+.lede { font-size: 19px; color: var(--muted); max-width: 62ch; margin: 8px 0 0; }
+.dark .lede { color: rgba(255,255,255,.82); }
+p { margin: 0; }
+.cols { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
+.cols-2 { display: grid; gap: 28px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); align-items: start; }
+.card { background: var(--white); border-radius: 14px; padding: 22px; min-width: 0; }
+.panel { border-radius: 14px; display: grid; place-items: center; padding: 28px; min-height: 150px; overflow: hidden; }
+.panel img { max-height: 70px; max-width: 100%; }
+.cap { font-size: 15px; color: var(--muted); }
+.cap b { color: var(--ink); font-weight: 600; }
+.rule-list { display: grid; gap: 0; }
+.rule-list > div { padding: 12px 0; border-top: 1px solid var(--line); display: grid; gap: 2px; }
+.rule-list b { font-family: var(--display); font-weight: 600; font-size: 16px; }
+.k { font-family: var(--display); font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--action); }
+.dark .k { color: var(--gold); }
+.mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 14px; }
+
+/* Cover */
+.cover { min-height: 560px; grid-template-rows: auto 1fr auto; }
+.cover .hero { display: grid; place-items: center start; }
+.cover .hero img { width: min(760px, 100%); }
+.cover .foot { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; }
+.cover .line { font-family: var(--display); font-size: clamp(26px, 3.4vw, 38px); font-weight: 600; }
+.cover .line span { color: var(--gold); }
+
+/* Contents */
+.toc { display: grid; gap: 28px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); }
+.toc h3 { color: var(--action); font-size: 16px; margin-bottom: 6px; }
+.toc a { display: flex; justify-content: space-between; padding: 9px 0; border-top: 1px solid var(--line); color: var(--ink); text-decoration: none; }
+.toc a:hover, .toc a:focus-visible { color: var(--action); }
+.toc a span { color: var(--muted); font-variant-numeric: tabular-nums; }
+
+/* Idea */
+.traits { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
+.trait h3 { font-size: 24px; }
+.trait .not { color: var(--danger); font-size: 14px; font-weight: 600; }
+.proposed { background: var(--white); border-radius: 14px; padding: 20px 22px; display: grid; gap: 4px; max-width: 520px; }
+.proposed .line { font-family: var(--display); font-size: 26px; font-weight: 600; }
+
+/* Voice */
+.voice { width: 100%; border-collapse: collapse; }
+.voice td, .voice th { text-align: left; vertical-align: top; padding: 12px 14px 12px 0; border-top: 1px solid var(--line); }
+.voice th { font-family: var(--display); font-size: 15px; font-weight: 600; width: 24%; }
+.say::before, .not::before { font-weight: 700; display: block; font-size: 13px; margin-bottom: 2px; }
+.say::before { content: "Say"; color: var(--success); }
+.voice .not { color: var(--muted); }
+.voice .not::before { content: "Not"; color: var(--danger); }
+.scroll { overflow-x: auto; min-width: 0; }
+.gloss { display: flex; flex-wrap: wrap; gap: 8px; }
+.gloss span { background: var(--white); border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; font-size: 15px; }
+.gloss span b { font-weight: 600; }
+
+/* Construction */
+.construct { position: relative; background: var(--white); border-radius: 14px; padding: 36px; display: grid; place-items: center; }
+.construct .grid { position: relative; width: min(280px, 80%); aspect-ratio: 306.51 / 400; max-width: 100%;
+  background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 12.5% 10%; }
+.construct .grid img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.dim { position: absolute; font-size: 13px; font-weight: 600; color: var(--action); font-family: var(--display); white-space: nowrap; }
+
+/* Clear space */
+.clear { position: relative; background: var(--white); border-radius: 14px; padding: 28px; }
+.clear .box { position: relative; outline: 1.5px dashed var(--muted); }
+.clear .box img { display: block; width: 100%; }
+.clear .art { position: absolute; left: 6.862%; right: 6.862%; top: 27.624%; bottom: 27.624%; outline: 1px dotted var(--action); }
+.clear .x { position: absolute; width: 28px; height: 28px; margin: -14px 0 0 -14px; border-radius: 50%; background: var(--tint); color: var(--action); font-weight: 700; display: grid; place-items: center; font-size: 14px; }
+.min { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); }
+.min .card { display: grid; gap: 10px; align-content: start; }
+.min .card .show { height: 48px; display: flex; align-items: center; }
+
+/* Colourways + misuse */
+.ways { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
+.ways figure { margin: 0; display: grid; gap: 8px; }
+.ways .panel { min-height: 140px; }
+.ways .panel img { max-height: 54px; }
+.bad .panel { background: var(--white); }
+.bad .panel img { max-height: 46px; }
+.dont { color: var(--danger); font-weight: 700; font-size: 14px; }
+
+/* Palette */
+.swatches { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr)); }
+.sw { border-radius: 14px; padding: 16px; min-height: 150px; display: grid; align-content: space-between; gap: 18px; }
+.sw.big { grid-column: span 2; min-height: 190px; }
+.sw b { font-family: var(--display); font-size: 18px; font-weight: 600; display: block; }
+.sw .use { font-size: 14px; line-height: 1.35; }
+.sw .val { font-size: 13px; font-variant-numeric: tabular-nums; line-height: 1.4; }
+.on-dark { color: var(--white); }
+.bordered { border: 1px solid var(--line); }
+.mix { display: flex; height: 76px; border-radius: 14px; overflow: hidden; font-family: var(--display); font-weight: 600; }
+.mix div { display: flex; flex-direction: column; justify-content: center; padding: 0 14px; font-size: 13px; min-width: 0; }
+.mix strong { font-size: 22px; }
+.one-rule { background: var(--teal); color: var(--white); border-radius: 14px; padding: 16px 20px; display: flex; gap: 14px; align-items: center; }
+.one-rule img { height: 26px; flex: none; }
+.pairs { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); }
+.pair .chip { border-radius: 12px; height: 74px; display: flex; align-items: center; justify-content: center; gap: 12px; font-family: var(--display); font-weight: 600; }
+.pair .chip .aa { font-size: 30px; }
+.pair .chip .bt { font-size: 15px; font-family: var(--text); }
+.pair .lab { margin-top: 8px; font-size: 14px; font-weight: 600; }
+.pair .res { font-size: 14px; font-variant-numeric: tabular-nums; }
+.pass { color: var(--success); }
+.warn { color: var(--warning); }
+.fail { color: var(--danger); }
+
+/* Type */
+.typeface { display: grid; gap: 6px; align-content: start; }
+.typeface .aa { font-family: var(--display); font-size: clamp(96px, 14vw, 160px); line-height: .9; font-weight: 600; color: var(--teal); }
+.typeface .aa.m { font-family: var(--text); color: var(--action); }
+.scale { width: 100%; border-collapse: collapse; }
+.scale td { border-top: 1px solid var(--line); padding: 10px 12px 10px 0; vertical-align: baseline; }
+.scale .meta { width: 150px; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.scale .meta b { display: block; color: var(--ink); font-size: 14px; }
+
+/* Graphic language */
+.icons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px 8px; }
+.icons div { display: grid; justify-items: center; gap: 6px; font-size: 14px; }
+.icons svg { width: 28px; height: 28px; stroke: var(--teal); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.photo { border-radius: 12px; background: #E4E7EA; min-height: 110px; display: grid; place-items: center; text-align: center; padding: 12px; font-size: 14px; color: var(--muted); font-weight: 600; }
+
+/* Digital */
+.appicons { display: flex; gap: 18px; align-items: end; flex-wrap: wrap; }
+.appicons img { border-radius: 22%; display: block; }
+.ui { display: grid; gap: 14px; }
+.btns { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.btn { font-family: var(--text); font-weight: 600; font-size: 16px; border-radius: 12px; height: 48px; padding: 0 20px; display: inline-flex; align-items: center; border: 1.5px solid transparent; }
+.btn.primary { background: var(--action); color: var(--white); }
+.btn.secondary { background: var(--white); color: var(--action); border-color: var(--action); }
+.btn.big { height: 56px; font-size: 18px; background: var(--action); color: var(--white); }
+.btn.link { color: var(--action); text-decoration: underline; padding: 0 4px; }
+.pill { display: inline-flex; align-items: center; height: 28px; padding: 0 12px; border-radius: 999px; font-size: 14px; font-weight: 600; }
+.notice { background: var(--teal); color: var(--white); border-radius: 14px; padding: 14px 18px; display: flex; gap: 14px; align-items: center; }
+.notice img { height: 34px; }
+.notice small { display: block; opacity: .8; font-size: 14px; }
+.browser { background: #E4E7EA; border-radius: 12px; padding: 10px 10px 0; }
+.tab { background: var(--white); border-radius: 10px 10px 0 0; padding: 8px 12px; display: flex; gap: 8px; align-items: center; font-size: 14px; width: max-content; max-width: 100%; }
+.tab img { width: 16px; height: 16px; }
+
+/* Print */
+.print { display: grid; gap: 22px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); align-items: start; }
+.vcard { aspect-ratio: 85 / 55; border-radius: 10px; max-width: 100%; }
+.vcard.front { background: var(--teal); display: grid; place-items: center; }
+.vcard.front img { width: 26%; }
+.vcard.back { background: var(--white); border: 1px solid var(--line); padding: 7% 8%; display: grid; align-content: space-between; font-size: 13px; line-height: 1.35; margin-top: 10px; }
+.vcard.back img { height: 18px; }
+.idcard { aspect-ratio: 54 / 86; max-width: 220px; border-radius: 14px; overflow: hidden; background: var(--white); border: 1px solid var(--line); display: grid; grid-template-rows: auto 1fr auto; }
+.idcard .top { background: var(--teal); padding: 12px; display: grid; place-items: center; }
+.idcard .top img { height: 20px; }
+.idcard .mid { display: grid; justify-items: center; align-content: center; gap: 6px; padding: 10px; text-align: center; font-size: 13px; }
+.idcard .face { width: 64px; height: 64px; border-radius: 50%; background: #E4E7EA; }
+.idcard .bot { background: var(--uniform); color: var(--white); font-size: 12px; text-align: center; padding: 7px; font-weight: 600; }
+.invoice { background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 16px; font-size: 13px; display: grid; gap: 10px; }
+.invoice img { height: 22px; }
+.invoice .row { display: flex; justify-content: space-between; font-variant-numeric: tabular-nums; }
+.invoice .tot { border-top: 1px solid var(--line); padding-top: 8px; font-weight: 700; }
+.shirt { background: var(--uniform); border-radius: 14px; aspect-ratio: 1 / 1; max-width: 240px; position: relative; }
+.shirt .chest { position: absolute; top: 26%; left: 58%; width: 30%; }
+
+/* Dos */
+.dos { width: 100%; border-collapse: collapse; }
+.dos th, .dos td { text-align: left; vertical-align: top; padding: 12px 14px 12px 0; border-top: 1px solid var(--line); }
+.dos th { font-family: var(--display); font-weight: 600; width: 14%; }
+.dos thead th { border-top: 0; font-family: var(--text); font-size: 14px; }
+
+/* Files */
+.files .rule-list > div { grid-template-columns: 170px 1fr; gap: 16px; border-color: rgba(255,255,255,.2); }
+.files .rule-list b { color: var(--white); }
+.files .cap { color: rgba(255,255,255,.8); }
+
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+@media (max-width: 640px) {
+  .sw.big { grid-column: span 1; }
+  .files .rule-list > div { grid-template-columns: 1fr; gap: 2px; }
+  .voice th { width: auto; }
+}
+@media print {
+  @page { size: A4 landscape; margin: 0; }
+  body { background: var(--surface); padding: 0; }
+  .book { max-width: none; gap: 0; }
+  .page { border-radius: 0; min-height: 210mm; break-after: page; padding: 14mm 16mm; }
+  .page:last-child { break-after: auto; }
+}
+</style>
+
+<main class="book">
+
+<!-- 1 Cover -->
+<section class="page dark cover" id="cover">
+  <div class="runner"><span>Brand guidelines</span><span>Version 1.0 · November 2026</span></div>
+  <div class="hero"><img src="assets/namamicleans-horizontal-reversed.svg" alt="Namamicleans"></div>
+  <div class="foot">
+    <p class="line">Clean, <span>right at your door.</span></p>
+    <p class="lede" style="max-width:40ch;margin:0">The logo, colour, type and standards that keep Namamicleans looking like itself, in the apps, on the street and on paper.</p>
+  </div>
+</section>
+
+<!-- 2 Contents -->
+<section class="page" id="contents">
+  <div class="runner"><span class="mark"><img src="assets/namamicleans-symbol-primary.svg" alt="">Namamicleans brand guidelines</span><span>Contents · 02</span></div>
+  <div class="cols-2">
+    <div><h2>Contents</h2><p class="lede">Start with the idea. Everything after it is a way of keeping that idea recognisable.</p></div>
+    <nav class="toc" aria-label="Contents">
+      <div><h3>Brand</h3><a href="#idea">The idea <span>03</span></a><a href="#voice">Voice and tone <span>04</span></a></div>
+      <div><h3>Logo</h3><a href="#symbol">The drop <span>05</span></a><a href="#lockups">Lockups <span>06</span></a><a href="#space">Clear space and size <span>07</span></a><a href="#colourways">Colourways <span>08</span></a><a href="#misuse">Misuse <span>09</span></a></div>
+      <div><h3>Colour</h3><a href="#palette">Palette <span>10</span></a><a href="#colour-use">Colour in use <span>11</span></a></div>
+      <div><h3>Type and graphics</h3><a href="#type">Typography <span>12</span></a><a href="#graphics">Icons and imagery <span>13</span></a></div>
+      <div><h3>Our two apps</h3><a href="#apps">App icons and Namamian <span>14</span></a><a href="#digital">Digital <span>15</span></a><a href="#print">Print and uniform <span>16</span></a></div>
+      <div><h3>Standards</h3><a href="#dos">Do's and don'ts <span>17</span></a><a href="#standards">Standards <span>18</span></a><a href="#files">Files and contact <span>19</span></a></div>
+    </nav>
+  </div>
+</section>
+
+<!-- 3 Idea -->
+<section class="page" id="idea">
+  <div class="runner"><span class="mark"><img src="assets/namamicleans-symbol-primary.svg" alt="">Namamicleans brand guidelines</span><span>Brand · 03</span></div>
+  <div class="cols-2">
+    <div style="display:grid;gap:18px">
+      <h2>A drop, and the shine it leaves.</h2>
+      <p class="lede">The drop is clean water. The gold curl inside it is the shine that's left when the job is done properly. The swirl between them is a Namamian at work.</p>
+      <p>Namamicleans brings trained, verified Namamians to people's homes for house, car and appliance cleaning, in Bhopal, Vidisha, Sagar, Chhatarpur and Nagpur. Everything we make should feel like the visit itself: calm, careful and on time.</p>
+      <div class="proposed"><span class="k">Proposed line</span><span class="line">Clean, right at your door.</span></div>
+    </div>
+    <div class="traits">
+      <div class="trait"><h3>Calm</h3><div class="not">not slow</div><p class="cap">Unhurried words and plenty of space. We never shout to be noticed.</p></div>
+      <div class="trait"><h3>Trustworthy</h3><div class="not">not stiff</div><p class="cap">Clear prices, real names, real photos. People let us into their homes.</p></div>
+      <div class="trait"><h3>Careful</h3><div class="not">not fussy</div><p class="cap">Every detail done properly, then quietly checked. Nothing extra to read.</p></div>
+      <div class="trait"><h3>Local</h3><div class="not">not small</div><p class="cap">Hindi and English, our cities by name, Namamians from the neighbourhood.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 Voice -->
+<section class="page" id="voice">
+  <div class="runner"><span class="mark"><img src="assets/namamicleans-symbol-primary.svg" alt="">Namamicleans brand guidelines</span><span>Brand · 04</span></div>
+  <div><h2>Voice and tone</h2><p class="lede">Write the way a good Namamian talks at the door: polite, brief, and clear about what happens next.</p></div>
+  <div class="cols-2">
+    <div class="scroll">
+      <table class="voice">
+        <tr><th>Sound like a person, not a system.</th><td class="say">Your visit is booked for Tue, 12 Nov, 10:00 am.</td><td class="not">Your booking has been successfully processed.</td></tr>
+        <tr><th>Short and specific.</th><td class="say">Ravi will reach by 10:00 am.</td><td class="not">Our professional will arrive within the scheduled time window!!</td></tr>
+        <tr><th>Errors say what happened and what to do.</th><td class="say">That payment didn't go through. Try again, or pay by UPI.</td><td class="not">Error 402: Transaction failed.</td></tr>
+        <tr><th>Invite, don't pressure.</th><td class="say">2 slots left on Saturday morning.</td><td class="not">Hurry!! Only 2 slots left, book NOW!</td></tr>
+        <tr><th>Hindi comes first in the Namamian app.</th><td class="say">काम शुरू करें · सुबह 9:00</td><td class="not">Start job · 09:00 AM</td></tr>
+      </table>
+    </div>
+    <div class="card" style="display:grid;gap:14px">
+      <h3>Writing mechanics</h3>
+      <div><b>Our name.</b> <span class="cap">Namamicleans, one word, capital N. Never Namami Cleans, NamamiCleans or NAMAMICLEANS.</span></div>
+      <div><b>Our people.</b> <span class="cap">Field staff are Namamians, never "captain", "worker" or "maid". Use their name where we can: "Ravi from Namamicleans".</span></div>
+      <div><b>Case.</b> <span class="cap">Sentence case for headings, buttons and menus.</span></div>
+      <div><b>Numbers.</b> <span class="cap">Numerals, Indian grouping, rupee sign: ₹1,499 · ₹1,23,456. Times as 10:00 am; in Hindi, सुबह/दोपहर/शाम/रात 10:00, never AM/PM.</span></div>
+      <div><b>Buttons.</b> <span class="cap">Say what happens: Book visit, Pay ₹1,499. The result echoes it: Visit booked.</span></div>
+      <div><b>Hindi glossary</b> <span class="cap">for booking status, used everywhere:</span>
+        <div class="gloss" style="margin-top:8px"><span><b>नई</b> new</span><span><b>तय</b> scheduled</span><span><b>चालू</b> ongoing</span><span><b>पूरी</b> completed</span><span><b>नया समय</b> rescheduled</span><span><b>ख़त्म</b> expired</span><span><b>छूट गई</b> missed</span><span><b>रद्द</b> cancelled</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 Symbol -->
+<section class="page" id="symbol">
+  <div class="runner"><span class="mark"><img src="assets/namamicleans-symbol-primary.svg" alt="">Namamicleans brand guidelines</span><span>Logo · 05</span></div>
+  <div class="cols-2">
+    <div style="display:grid;gap:18px">
+      <div><h2>The drop</h2><p class="lede">One master drawing, two colours. It holds up from a 16 px browser tab to a shop sign.</p></div>
+      <div class="rule-list">
+        <div><b>Two parts</b><span class="cap">The body (Namami Teal) and the curl (Gold). Every colourway recolours these two parts, nothing else.</span></div>
+        <div><b>Proportions</b><span class="cap">2072 wide by 2704 tall: always this shape, never squashed to fit a box.</span></div>
+        <div><b>Never redraw it</b><span class="cap">Always place the master file from the brand kit. Don't trace, rebuild, simplify or adjust it by eye.</span></div>
+        <div><b>Small sizes</b><span class="cap">Below 20 px, use the favicon files: they give the drop more of the tile so it still reads.</span></div>
+      </div>
+    </div>
+    <div class="construct">
+      <div class="grid">
+        <img src="assets/namamicleans-symbol-primary.svg" alt="The Namamicleans drop on its grid">
+        <span class="dim" style="left:100%;top:47%;padding-left:10px">2704</span>
+        <span class="dim" style="top:100%;left:40%;padding-top:6px">2072</span>
+      </div>
+      <p class="cap" style="margin-top:28px;text-align:center">The drop on an 8 × 10 grid. Body: Namami Teal. Curl: Gold.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6 Lockups -->
+<section class="page" id="lockups">
+  <div class="runner"><span class="mark"><img src="assets/namamicleans-symbol-primary.svg" alt="">Namamicleans brand guidelines</span><span>Logo · 06</span></div>
+  <div><h2>Lockups</h2><p class="lede">Four approved arrangements, all generated from the same two masters. Use the horizontal lockup unless the space clearly asks for another.</p></div>
+  <figure style="margin:0;display:grid;gap:10px">
+    <div class="panel" style="background:var(--white);min-height:200px"><img src="assets/namamicleans-horizontal-primary.svg" alt="Horizontal lockup" style="max-height:84px"></div>
+    <p class="cap"><b>Horizontal.</b> The main logo: app headers, website, documents, signage, uniforms.</p>
+  </figure>
+  <div class="cols">
+    <figure style="margin:0;display:grid;gap:10px"><div class="panel" style="background:var(--white);min-height:190px"><img src="assets/namamicleans-stacked-primary.svg" alt="Stacked lockup" style="max-height:120px"></div><p class="cap"><b>Stacked.</b> Square and tall spaces: posters, ID cards, splash screens.</p></figure>
+    <figure style="margin:0;display:grid;gap:10px"><div class="panel" style="background:var(--white);min-height:190px"><img src="assets/namamicleans-symbol-primary.svg" alt="The drop" style="max-height:120px"></div><p class="cap"><b>Drop.</b> App icons, favicons, avatars, or where the name is already nearby.</p></figure>
+    <figure style="margin:0;display:grid;gap:10px"><div class="panel" style="background:var(--white);min-height:190px"><img src="assets/namamicleans-wordmark-primary.svg" alt="Wordmark" style="max-height:44px"></div><p class="cap"><b>Wordmark.</b> Only where the drop is already present on the same surface.</p></figure>
+  </div>
+  <p class="cap">Horizontal: the drop is 1.62 × H tall and sits 0.46 × H from the name. Stacked: the drop is 3.1 × H tall, 0.62 × H above the name. H is the height of the capital N.</p>
+</section>
+
+<!-- 7 Clear space -->
+<section class="page" id="space">
+  <div class="runner"><span class="mark"><img src="assets/namamicleans-symbol-primary.svg" alt="">Namamicleans brand guidelines</span><span>Logo · 07</span></div>
+  <div class="cols-2">
+    <div style="display:grid;gap:22px">
+      <div><h2>Clear space and minimum size</h2><p class="lede">Give the logo one H of space on every side: the height of the N in the name, so the space grows with the logo.</p></div>
+      <div class="min">
+        <div class="card"><div class="show"><img src="assets/namamicleans-symbol-primary.svg" alt="" style="height:20px"></div><b>Drop</b><span class="cap">20 px screen<br>6 mm print</span></div>
+        <div class="card"><div class="show"><img src="assets/namamicleans-horizontal-primary.svg" alt="" style="width:120px"></div><b>Horizontal</b><span class="cap">120 px wide screen<br>30 mm print</span></div>
+        <div class="card"><div class="show"><img src="assets/namamicleans-stacked-primary.svg" alt="" style="width:80px"></div><b>Stacked</b><span class="cap">80 px wide screen<br>20 mm print</span></div>
+      </div>
+    </div>
+    <div class="clear">
+      <div class="box">
+        <img src="assets/clear-horizontal-primary.svg" alt="Horizontal logo with its clear space">
+        <div class="art"></div>
+        <span class="x" style="left:50%;top:13.8%">H</span>
+        <span class="x" style="left:50%;top:86.2%">H</span>
+        <span class="x" style="left:3.43%;top:50%">H</span>
+        <span class="x" style="left:96.57%;top:50%">H</span>
+      </div>
+      <p class="cap" style="margin-top:14px">Dashed line: the clear space. Dotted line: the artwork. No text, edge, image or other logo enters the clear space.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8 Colourways -->
+<section class="page" id="colourways">
+  <div class="runner"><span class="mark"><img src="assets/namamicleans-symbol-primary.svg" alt="">Namamicleans brand guidelines</span><span>Logo · 08</span></div>
+  <div><h2>Colourways</h2><p class="lede">Gold is only ever on Namami Teal. On white and light grounds the whole logo is teal, because gold on white is too faint to read (1.6:1).</p></div>
+  <div class="ways">
+    <figure><div class="panel bordered" style="background:var(--white)"><img src="assets/namamicleans-horizontal-primary.svg" alt="Primary on white"></div><p class="cap"><b>Primary on white.</b> Default for documents, the website and the customer app.</p></figure>
+    <figure><div class="panel" style="background:var(--surface);border:1px solid var(--line)"><img src="assets/namamicleans-horizontal-primary.svg" alt="Primary on page grey"></div><p class="cap"><b>Primary on page grey.</b> The apps' everyday background.</p></figure>
+    <figure><div class="panel" style="background:var(--teal)"><img src="assets/namamicleans-horizontal-reversed.svg" alt="Reversed on Namami Teal"></div><p class="cap"><b>Reversed on Namami Teal.</b> "Namami" white, "cleans" gold. Covers, social, the Namamian app, uniforms.</p></figure>
+    <figure><div class="panel bordered" style="background:var(--white)"><img src="assets/namamicleans-horizontal-teal.svg" alt="One colour teal"></div><p class="cap"><b>One colour, teal.</b> Single-colour print, embroidery, stamps.</p></figure>
+    <figure><div class="panel" style="background:#2B3A40"><img src="assets/namamicleans-horizontal-white.svg" alt="One colour white"></div><p class="cap"><b>One colour, white.</b> On photos and dark grounds that aren't Namami Teal.</p></figure>
+    <figure><div class="panel bordered" style="background:var(--white)"><img src="assets/namamicleans-horizontal-black.svg" alt="One colour black"></div><p class="cap"><b>One colour, black.</b> Thermal receipts, newsprint, rubber stamps.</p></figure>
+  </div>
+</section>
+
+<!-- 9 Misuse -->
+<section class="page" id="misuse">
+  <div class="runner"><span class="mark"><img src="assets/namamicleans-symbol-primary.svg" alt="">Namamicleans brand guidelines</span><span>Logo · 09</span></div>
+  <div><h2>Misuse</h2><p class="lede">The logo only works if it looks the same everywhere. Use the master files exactly as supplied.</p></div>
+  <div class="ways bad">
+    <figure><div class="panel"><img src="assets/namamicleans-horizontal-primary.svg" alt="" style="transform:scaleX(1.35)"></div><p class="cap"><span class="dont">Don't</span> stretch or squash it.</p></figure>
+    <figure><div class="panel"><img src="assets/namamicleans-horizontal-primary.svg" alt="" style="transform:rotate(-8deg)"></div><p class="cap"><span class="dont">Don't</span> rotate or tilt it.</p></figure>
+    <figure><div class="panel"><img src="assets/namamicleans-horizontal-primary.svg" alt="" style="filter:hue-rotate(140deg) saturate(2.4)"></div><p class="cap"><span class="dont">Don't</span> recolour it outside the colourways.</p></figure>
+    <figure><div class="panel"><img src="assets/namamicleans-horizontal-reversed.svg" alt="" style="filter:drop-shadow(0 6px 6px rgba(0,0,0,.45))" ></div><p class="cap"><span class="dont">Don't</span> put the two-tone logo on white, or add shadows and glows.</p></figure>
+    <figure><div class="panel" style="background:var(--action)"><img src="assets/namamicleans-horizontal-reversed.svg" alt=""></div><p class="cap"><span class="dont">Don't</span> place it on Action Teal. Only Namami Teal carries the logo.</p></figure>
+    <figure><div class="panel"><span style="font-family:Georgia,serif;font-size:34px;color:var(--teal);font-style:italic">Namami Cleans</span></div><p class="cap"><span class="dont">Don't</span> retype the name, split it into two words or set it in another font.</p></figure>
+  </div>
+</section>
+
+<!-- 10 Palette -->
+<section class="page" id="palette">
+  <div class="runner"><span class="mark"><img src="assets/namamicleans-symbol-primary.svg" alt="">Namamicleans brand guidelines</span><span>Colour · 10</span></div>
+  <div><h2>Colour palette</h2><p class="lede">Two teals with two jobs. Namami Teal is the brand: logo, icons, covers. Action Teal is what people tap. Gold is the shine, used sparingly.</p></div>
+  <div class="swatches">
+    <div class="sw big on-dark" style="background:var(--teal)"><div><b style="font-size:26px">Namami Teal</b><span class="use">The brand colour. Logo, app icons, covers, the Namamian app, big moments.</span></div><span class="val">#0B4251 · RGB 11 66 81</span></div>
+    <div class="sw big on-dark" style="background:var(--action)"><div><b style="font-size:26px">Action Teal</b><span class="use">Buttons, links, selected states: anything people tap in our apps.</span></div><span class="val">#0F766E · RGB 15 118 110 · hover #115E59</span></div>
+    <div class="sw" style="background:var(--gold)"><div><b>Gold</b><span class="use">Logo curl, ratings, savings. Never text on white.</span></div><span class="val">#EFC663</span></div>
+    <div class="sw" style="background:var(--tint)"><div><b>Teal Tint</b><span class="use">Selected rows, soft panels.</span></div><span class="val">#F0FDFA</span></div>
+    <div class="sw" style="background:var(--gold-soft)"><div><b>Gold Tint</b><span class="use">Offer and saving panels.</span></div><span class="val">#FBF1D6</span></div>
+    <div class="sw on-dark" style="background:var(--ink)"><div><b>Ink</b><span class="use">Text, dark surfaces.</span></div><span class="val">#0E2B33</span></div>
+    <div class="sw on-dark" style="background:var(--muted)"><div><b>Ink Muted</b><span class="use">Secondary text.</span></div><span class="val">#4B5F64</span></div>
+    <div class="sw" style="background:var(--line)"><div><b>Line</b><span class="use">Dividers, input borders.</span></div><span class="val">#E5E7EB</span></div>
+    <div class="sw bordered" style="background:var(--surface)"><div><b>Page Grey</b><span class="use">App and page background.</span></div><span class="val">#F9FAFB</span></div>
+    <div class="sw bordered" style="background:var(--white)"><div><b>White</b><span class="use">Cards, sheets, documents.</span></div><span class="val">#FFFFFF</span></div>
+    <div class="sw on-dark" style="background:var(--success)"><div><b>Success</b><span class="use">Paid, done.</span></div><span class="val">#1B6E45</span></div>
+    <div class="sw on-dark" style="background:var(--warning)"><div><b>Warning</b><span class="use">Needs attention.</span></div><span class="val">#9A5300</span></div>
+    <div class="sw on-dark" style="background:var(--danger)"><div><b>Danger</b><span class="use">Errors, cancellations.</span></div><span class="val">#B42318</span></div>
+    <div class="sw on-dark" style="background:var(--info)"><div><b>Info</b><span class="use">Neutral notices.</span></div><span class="val">#1F5F8B</span></div>
+    <div class="sw on-dark" style="background:var(--uniform)"><div><b>Uniform Teal</b><span class="use">Fabric and photos only. Never on screen.</span></div><span class="val">#127578 · match the shade card</span></div>
+  </div>
+</section>
+
+<!-- 11 Colour in use -->
+<section class="page" id="colour-use">
+  <div class="runner"><span class="mark"><img src="assets/namamicleans-symbol-primary.svg" alt="">Namamicleans brand guidelines</span><span>Colour · 11</span></div>
+  <div class="cols-2">
+    <div><h2>Colour in use</h2><p class="lede">Keep the balance and the teal stays special. Check every text pairing against this table.</p></div>
+    <div class="mix" role="img" aria-label="60% white and page grey, 25% ink, 10% teal, 5% gold">
+      <div style="flex:60;background:var(--white);border:1px solid var(--line)"><strong>60%</strong>White and grey</div>
+      <div style="flex:25;background:var(--ink);color:var(--white)"><strong>25%</strong>Ink</div>
+      <div style="flex:10;background:var(--teal);color:var(--white)"><strong>10%</strong>Teal</div>
+      <div style="flex:5;background:var(--gold);padding:0;align-items:center"><strong style="font-size:13px">5%</strong></div>
+    </div>
+  </div>
+  <div class="one-rule"><img src="assets/namamicleans-symbol-reversed.svg" alt=""><p><b>The one rule:</b> gold is never text on white or grey (1.6:1). Anything people tap is Action Teal; the logo is always Namami Teal.</p></div>
+  <div class="pairs">
+    <div class="pair"><div class="chip" style="background:var(--teal);color:var(--white)"><span class="aa">Aa</span><span class="bt">Book visit</span></div><div class="lab">White on Namami Teal</div><div class="res pass">10.98:1 · AAA, any text</div></div>
+    <div class="pair"><div class="chip" style="background:var(--teal);color:var(--gold)"><span class="aa">Aa</span><span class="bt">Book visit</span></div><div class="lab">Gold on Namami Teal</div><div class="res pass">6.76:1 · AA, any text</div></div>
+    <div class="pair"><div class="chip" style="background:var(--action);color:var(--white)"><span class="aa">Aa</span><span class="bt">Book visit</span></div><div class="lab">White on Action Teal</div><div class="res pass">5.47:1 · AA, any text</div></div>
+    <div class="pair"><div class="chip bordered" style="background:var(--white);color:var(--action)"><span class="aa">Aa</span><span class="bt">Book visit</span></div><div class="lab">Action Teal on white</div><div class="res pass">5.47:1 · AA, any text</div></div>
+    <div class="pair"><div class="chip bordered" style="background:var(--surface);color:var(--ink)"><span class="aa">Aa</span><span class="bt">Book visit</span></div><div class="lab">Ink on page grey</div><div class="res pass">14.23:1 · AAA, any text</div></div>
+    <div class="pair"><div class="chip bordered" style="background:var(--surface);color:var(--muted)"><span class="aa">Aa</span><span class="bt">Book visit</span></div><div class="lab">Ink Muted on page grey</div><div class="res pass">6.44:1 · AA, any text</div></div>
+    <div class="pair"><div class="chip" style="background:var(--tint);color:var(--action-hover)"><span class="aa">Aa</span><span class="bt">Book visit</span></div><div class="lab">Teal hover on Teal Tint</div><div class="res pass">7.27:1 · AAA, any text</div></div>
+    <div class="pair"><div class="chip" style="background:var(--action);color:var(--gold)"><span class="aa">Aa</span><span class="bt">Book visit</span></div><div class="lab">Gold on Action Teal</div><div class="res warn">3.37:1 · 24 px+ only. Avoid.</div></div>
+    <div class="pair"><div class="chip bordered" style="background:var(--white);color:var(--gold)"><span class="aa">Aa</span><span class="bt">Book visit</span></div><div class="lab">Gold on white</div><div class="res fail">1.62:1 · Fails. Never use.</div></div>
+  </div>
+</section>
+
+<!-- 12 Type -->
+<section class="page" id="type">
+  <div class="runner"><span class="mark"><img src="assets/namamicleans-symbol-primary.svg" alt="">Namamicleans brand guidelines</span><span>Typography · 12</span></div>
+  <div class="cols-2">
+    <div style="display:grid;gap:22px">
+      <div class="typeface"><span class="aa">Aa</span><h3 style="font-size:26px">Poppins</h3><p class="cap">500 · 600 · 700. Headings, prices and the wordmark. Latin only.</p></div>
+      <div class="typeface"><span class="aa m">अआ</span><h3 style="font-size:26px">Mukta</h3><p class="cap">400 · 500 · 600 · 700. Body text, buttons, and all Hindi (Devanagari) text. Both are free under the SIL Open Font License.</p></div>
+      <div class="rule-list">
+        <div><b>Sizes come from the tokens</b><span class="cap">Never set a size by hand: use text-title-1, text-body and the rest from @namami/tokens.</span></div>
+        <div><b>Namamian app is bigger</b><span class="cap">Used outdoors, in sunlight, with gloves: 18 px by default, 16 px minimum, 56 px tap targets.</span></div>
+        <div><b>Numbers</b><span class="cap">Tabular figures for prices and times, so columns line up.</span></div>
+      </div>
+    </div>
+    <div class="scroll">
+      <table class="scale">
+        <tr><td class="meta"><b>Display XL</b>40/46 · Poppins 700</td><td style="font-family:var(--display);font-size:40px;line-height:46px;font-weight:700;letter-spacing:-0.01em">Spotless homes</td></tr>
+        <tr><td class="meta"><b>Display</b>30/36 · Poppins 600</td><td style="font-family:var(--display);font-size:30px;line-height:36px;font-weight:600">Deep Home Cleaning</td></tr>
+        <tr><td class="meta"><b>Title 1</b>22/28 · Poppins 600</td><td style="font-family:var(--display);font-size:22px;line-height:28px;font-weight:600">Your bookings</td></tr>
+        <tr><td class="meta"><b>Title 2</b>18/24 · Poppins 600</td><td style="font-family:var(--display);font-size:18px;line-height:24px;font-weight:600">Today's jobs</td></tr>
+        <tr><td class="meta"><b>Price</b>18/24 · Poppins 600</td><td style="font-family:var(--display);font-size:18px;line-height:24px;font-weight:600;font-variant-numeric:tabular-nums">₹1,499</td></tr>
+        <tr><td class="meta"><b>Body</b>16/24 · Mukta 400</td><td style="font-size:16px;line-height:24px">Two Namamians, about 3 hours, all equipment included.</td></tr>
+        <tr><td class="meta"><b>Field</b>18/28 · Mukta 400</td><td style="font-size:18px;line-height:28px">आज के काम · सुबह 9:00 · 3 कारें</td></tr>
+        <tr><td class="meta"><b>Small</b>14/20 · Mukta 400</td><td style="font-size:14px;line-height:20px">Free reschedule up to 2 hours before.</td></tr>
+        <tr><td class="meta"><b>Caption</b>14/20 · Mukta 500</td><td style="font-size:14px;line-height:20px;font-weight:500">Updated 2 minutes ago</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 13 Graphics -->
+<section class="page" id="graphics">
+  <div class="runner"><span class="mark"><img src="assets/namamicleans-symbol-primary.svg" alt="">Namamicleans brand guidelines</span><span>Graphic language · 13</span></div>
+  <div><h2>Icons and imagery</h2><p class="lede">Plain outline icons and real photos of real work. Nothing that makes a clean home look staged.</p></div>
+  <div class="cols-2">
+    <div class="card" style="display:grid;gap:16px">
+      <div class="icons" aria-label="Icon examples">
+        <div><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Book</div>
+        <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Time</div>
+        <div><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Address</div>
+        <div><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>Pay</div>
+        <div><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>Home</div>
+        <div><svg viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9L18 10l-2.7-3.6A2 2 0 0 0 13.7 6H7.3a2 2 0 0 0-1.6.8L3 10.5V16c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>Car</div>
+        <div><svg viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>Alerts</div>
+        <div><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Done</div>
+      </div>
+      <p class="cap"><b>Icons.</b> Lucide outline set (already in all our apps): 24 px grid, 2 px stroke, round caps. Namami Teal or Ink only. Gold is for rating stars, never icons.</p>
+    </div>
+    <div style="display:grid;gap:14px">
+      <div class="cols" style="grid-template-columns:repeat(3,1fr);gap:10px">
+        <div class="photo">Namamian at the door, in uniform</div>
+        <div class="photo">Hands at work on a sofa or a car</div>
+        <div class="photo">The finished room, natural light</div>
+      </div>
+      <p class="cap"><b>Photography.</b> Real Namamians, real homes, natural light, shot with consent. Show the work and the result, not posed smiles. AI images may illustrate a service; they never stand in as proof of a job we did.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 14 Apps -->
+<section class="page" id="apps">
+  <div class="runner"><span class="mark"><img src="assets/namamicleans-symbol-primary.svg" alt="">Namamicleans brand guidelines</span><span>Our two apps · 14</span></div>
+  <div class="cols-2">
+    <div style="display:grid;gap:18px">
+      <div><h2>App icons and the Namamian app</h2><p class="lede">One drop, one recipe, two colourways. Customers see the drop on white. Our Namamians' app is the same drop reversed on Namami Teal, so the two never get mixed up on a phone.</p></div>
+      <div class="rule-list">
+        <div><b>Same size everywhere</b><span class="cap">Phone icon: drop is 44% of Android's 108 dp canvas (66% of what the launcher shows). Play, iOS and app-store squares: 62%. Browser tabs: 70%, so it still reads at 16 px.</span></div>
+        <div><b>Never put the name in an icon</b><span class="cap">The drop alone. The store and the phone already show the name.</span></div>
+        <div><b>Generated, not drawn</b><span class="cap">Every icon file comes from the kit's generator. If a size is missing, add it to the generator; never export by hand.</span></div>
+      </div>
+    </div>
+    <div class="card" style="display:grid;gap:18px">
+      <img src="assets/kit-everywhere.png" alt="Both apps' icons on phone, Play Store, web, browser tab and splash" style="border-radius:10px">
+      <p class="cap">Top: Namamicleans (customers). Middle: Namamian (staff). Bottom: social avatar and share image.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 15 Digital -->
+<section class="page" id="digital">
+  <div class="runner"><span class="mark"><img src="assets/namamicleans-symbol-primary.svg" alt="">Namamicleans brand guidelines</span><span>Digital · 15</span></div>
+  <div><h2>Digital</h2><p class="lede">App icons, browser and social, and the interface pieces every screen is built from. Production files and tokens are in the kit.</p></div>
+  <div class="cols-2">
+    <div style="display:grid;gap:18px">
+      <div class="appicons">
+        <img src="assets/namamicleans-play-store-512.png" alt="Namamicleans app icon" width="112" height="112">
+        <img src="assets/namamian-play-store-512.png" alt="Namamian app icon" width="112" height="112">
+        <img src="assets/namamicleans-pwa-192.png" alt="" width="64" height="64">
+        <img src="assets/namamian-pwa-192.png" alt="" width="64" height="64">
+      </div>
+      <div class="browser"><div class="tab"><img src="assets/namamicleans-favicon-32.png" alt="">Namamicleans · Book home cleaning</div></div>
+      <div class="cols" style="grid-template-columns:auto 1fr;align-items:center">
+        <img src="assets/namamicleans-avatar-800.png" alt="Social avatar" style="width:96px;border-radius:50%">
+        <img src="assets/namamicleans-og-1200x630.png" alt="Share image" style="border-radius:10px">
+      </div>
+      <p class="cap">Social avatar and share image use the reversed colourway; circular crops keep the drop centred with its clear space.</p>
+    </div>
+    <div class="ui">
+      <span class="k">Interface essentials</span>
+      <div class="btns"><span class="btn primary">Book visit</span><span class="btn secondary">View plans</span><span class="btn link">See all services</span></div>
+      <div class="btns"><span class="pill" style="background:var(--tint);color:var(--action-hover)">Scheduled</span><span class="pill" style="background:var(--action);color:var(--white)">Ongoing</span><span class="pill" style="background:#E7F4EC;color:var(--success)">Completed</span><span class="pill" style="background:#FDECEA;color:var(--danger)">Cancelled</span></div>
+      <div class="notice"><img src="assets/namamicleans-symbol-reversed.svg" alt=""><div><b>Ravi is on the way</b><small>Reaching by 10:00 am. Call him from Bookings.</small></div></div>
+      <div class="btns"><span class="btn big">काम शुरू करें</span><span class="cap">Namamian app: 56 px controls, Hindi first.</span></div>
+      <p class="cap">Buttons have 12 px corners and are at least 48 px tall (56 px in the Namamian app). Status always pairs colour with words, never colour alone. Focus shows a 3 px ring.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 16 Print -->
+<section class="page" id="print">
+  <div class="runner"><span class="mark"><img src="assets/namamicleans-symbol-primary.svg" alt="">Namamicleans brand guidelines</span><span>Print and uniform · 16</span></div>
+  <div><h2>Print and uniform</h2><p class="lede">Reference layouts for the pieces people hold or see at the door. Bracketed text is placeholder content.</p></div>
+  <div class="print">
+    <figure style="margin:0;display:grid;gap:8px">
+      <div class="vcard front"><img src="assets/namamicleans-symbol-reversed.svg" alt=""></div>
+      <div class="vcard back"><img src="assets/namamicleans-horizontal-primary.svg" alt="" style="justify-self:start"><div><b>[Full name]</b><br><span class="cap">[Role]</span><br>[Phone] · [name]@namamicleans.com</div></div>
+      <p class="cap"><b>Visiting card.</b> 85 × 55 mm, 350 gsm matt. Namami Teal flood on the front: approve a printed proof.</p>
+    </figure>
+    <figure style="margin:0;display:grid;gap:8px">
+      <div class="idcard"><div class="top"><img src="assets/namamicleans-horizontal-reversed.svg" alt=""></div><div class="mid"><div class="face"></div><b>[Namamian name]</b><span class="cap">Namamian · [City]</span><span class="mono">ID [NM-0000]</span></div><div class="bot">Verified Namamian</div></div>
+      <p class="cap"><b>Namamian ID card.</b> 54 × 86 mm. Photo, name and ID always visible at the door.</p>
+    </figure>
+    <figure style="margin:0;display:grid;gap:8px">
+      <div class="invoice"><img src="assets/namamicleans-horizontal-black.svg" alt=""><div class="cap">Invoice [INV-0000] · [date]</div><div class="row"><span>Deep House Cleaning × 1</span><span>₹2,999</span></div><div class="row"><span>Kitchen add-on × 1</span><span>₹499</span></div><div class="row tot"><span>Total</span><span>₹3,498</span></div><div class="cap">Namamicleans Services Pvt Ltd · CIN U81210MP2026PTC086863</div></div>
+      <p class="cap"><b>Invoice and receipt.</b> One-colour logo (teal on colour printers, black on thermal).</p>
+    </figure>
+    <figure style="margin:0;display:grid;gap:8px">
+      <div class="shirt"><img class="chest" src="assets/namamicleans-stacked-reversed.svg" alt=""></div>
+      <p class="cap"><b>Uniform.</b> Uniform Teal fabric, reversed stacked logo on the left chest, 70 mm wide. Match the fabric to the shade card, not the screen.</p>
+    </figure>
+  </div>
+</section>
+
+<!-- 17 Dos -->
+<section class="page" id="dos">
+  <div class="runner"><span class="mark"><img src="assets/namamicleans-symbol-primary.svg" alt="">Namamicleans brand guidelines</span><span>Standards · 17</span></div>
+  <div><h2>Do's and don'ts</h2><p class="lede">The short version of everything in this book. When in doubt, choose the simpler option.</p></div>
+  <div class="scroll">
+    <table class="dos">
+      <thead><tr><th></th><th class="pass">Do</th><th class="fail">Don't</th></tr></thead>
+      <tr><th>Name</th><td>Write Namamicleans, one word, capital N.</td><td>Write Namami Cleans, NAMAMICLEANS, or set the name in another font.</td></tr>
+      <tr><th>Logo</th><td>Use the kit's master files with one H of clear space.</td><td>Redraw, stretch, recolour, or put the gold logo on white.</td></tr>
+      <tr><th>Colour</th><td>Let white, grey and ink carry the page. Action Teal for what people tap.</td><td>Flood every surface with teal, or use gold for text and icons.</td></tr>
+      <tr><th>Type</th><td>Poppins for headings, Mukta for text and Hindi, sizes from the tokens.</td><td>Add other typefaces or set headings in all caps.</td></tr>
+      <tr><th>Imagery</th><td>Real Namamians and real homes, in natural light, with consent.</td><td>Stock smiles, heavy filters, or AI images presented as our work.</td></tr>
+      <tr><th>Voice</th><td>Short, polite, specific. Hindi first for Namamians.</td><td>Shout, stack exclamation marks, or hide behind jargon.</td></tr>
+      <tr><th>Digital</th><td>48 px targets (56 px for Namamians), visible focus, alt text that says Namamicleans.</td><td>Signal status with colour alone, or autoplay motion.</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 18 Standards -->
+<section class="page" id="standards">
+  <div class="runner"><span class="mark"><img src="assets/namamicleans-symbol-primary.svg" alt="">Namamicleans brand guidelines</span><span>Standards · 18</span></div>
+  <div><h2>Standards</h2><p class="lede">How Namamicleans behaves around claims, people and partners.</p></div>
+  <div class="cols">
+    <div class="rule-list"><div><b>Honest claims</b><span class="cap">No "best in Bhopal" or "No. 1" without a source we can show. Prices say what they include. Before-and-after photos are real and from the same job.</span></div></div>
+    <div class="rule-list"><div><b>Privacy</b><span class="cap">Customers' homes and faces never appear without written consent. We follow the DPDP Act, 2023: see namamicleans.com/privacy-policy.</span></div></div>
+    <div class="rule-list"><div><b>Access</b><span class="cap">Every screen meets WCAG 2.1 AA. Plain words, in Hindi and English, so everyone can book and every Namamian can work.</span></div></div>
+    <div class="rule-list"><div><b>Licensing</b><span class="cap">Poppins and Mukta are free under the SIL Open Font License. Every photo is licensed or our own, and credited where needed.</span></div></div>
+    <div class="rule-list"><div><b>Trademark</b><span class="cap">Use ™ after Namamicleans in formal contexts until registration completes, then ®. Confirm with trademark counsel first.</span></div></div>
+    <div class="rule-list"><div><b>File naming</b><span class="cap mono">namamicleans-[lockup]-[colourway]@[width]w.png</span><span class="cap">matching the kit, so the right file is always findable.</span></div></div>
+  </div>
+</section>
+
+<!-- 19 Files -->
+<section class="page dark files" id="files">
+  <div class="runner"><span class="mark"><img src="assets/namamicleans-symbol-reversed.svg" alt="">Namamicleans brand guidelines</span><span>Files and contact · 19</span></div>
+  <div class="cols-2">
+    <div style="display:grid;gap:22px;align-content:space-between;min-height:360px">
+      <div><h2>Everything you need is in the brand kit.</h2><p class="lede">Always work from these files, never from screenshots of this book.</p></div>
+      <img src="assets/namamicleans-horizontal-reversed.svg" alt="Namamicleans" style="width:min(460px,100%)">
+      <div><b>Brand questions and approvals</b><p class="cap">Namamicleans Services Pvt Ltd · info@namamicleans.com</p><p class="cap">Version 1.0, November 2026. Reviewed every year.</p></div>
+    </div>
+    <div style="display:grid;gap:10px;align-content:start">
+      <span class="k">namami-brand / kit</span>
+      <div class="rule-list">
+        <div><b>01 logo</b><span class="cap">Horizontal, stacked, drop and wordmark in 5 colourways. SVG, plus PNG at 600, 1200 and 2400 px, with and without clear space.</span></div>
+        <div><b>02 app icons</b><span class="cap">Both apps: Android adaptive layers at every density, Play Store 512, iOS 1024, splash screens, Capacitor sources.</span></div>
+        <div><b>03 web icons</b><span class="cap">favicon.ico and SVG, PWA icons (standard and maskable), Apple touch icon, for both apps.</span></div>
+        <div><b>04 social</b><span class="cap">Avatar, 1200 × 630 share image, 1584 × 396 banner.</span></div>
+        <div><b>05 fonts</b><span class="cap">Poppins and Mukta with their open licences.</span></div>
+        <div><b>06 tokens</b><span class="cap">@namami/tokens: colour, type, space, radius and status styles for every app.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
