@@ -1,0 +1,13 @@
+{
+  "name": "@namami/brand-kit",
+  "private": true,
+  "type": "module",
+  "description": "Generates every Namamicleans logo, icon, favicon and social file from the masters in src/.",
+  "scripts": {
+    "build": "node build-logo.mjs && node build-icons.mjs"
+  },
+  "dependencies": {
+    "@resvg/resvg-js": "2.6.2",
+    "opentype.js": "1.3.4"
+  }
+}
