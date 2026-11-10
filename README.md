@@ -1,15 +1,15 @@
 # @namami/tokens
 
-The single source of Namami Cleans' brand in code: colours, type, spacing, radius, control sizes and booking-status styling, shared by the customer app, the Namamian app, admin and the website.
+The single source of Namamicleans' brand in code: colours, type, spacing, radius, control sizes, booking-status styling, and every logo and icon file, shared by the customer app, the Namamian app, admin and the website.
 
-The brand book (voice, Hindi rules, imagery, print, uniform) lives in the Namami Cleans Design System artifact. This repo's `tokens.json` is the same file; change it here first, then sync the artifact (`dist/design-system.tokens.css` is its `tokens.css`).
+The guidelines are the brand book (`book/index.html`, published as a private claude.ai page; the PDF and kit zip are exported from it). The Design System artifact mirrors `tokens.json`; change tokens here first, then sync the artifact (`dist/design-system.tokens.css` is its `tokens.css`).
 
 ## Install
 
-Pinned to a version tag, from this repo (public: it holds only token values, no secrets or logos):
+Pinned to a version tag, from this repo (public: it holds token values and the brand's logo and icon files, no secrets):
 
 ```json
-"@namami/tokens": "github:Namamicleans-Services/namami-brand#v1.1.0"
+"@namami/tokens": "github:Namamicleans-Services/namami-brand#v1.3.0"
 ```
 
 No tokens or CI secrets are needed.
@@ -73,3 +73,18 @@ Rejects raw hex colours, Tailwind palette classes (`bg-teal-600`, `text-gray-500
 5. Products upgrade by changing their pinned tag.
 
 The brand owner approves every change.
+
+## Logo and icon files (the kit)
+
+`kit/` generates every logo and icon from two masters: the drop (`kit/src/drop.svg`) and the wordmark, set in Poppins SemiBold and outlined so it can't be retyped.
+
+```bash
+cd kit && npm install && npm run build   # in Docker: node:22
+```
+
+- `kit/dist/01-logo`: horizontal, stacked, drop and wordmark in 5 colourways (SVG; PNG at 600/1200/2400 px).
+- `kit/dist/02-app-icons/<app>`: Android `res/` (adaptive layers at every density, legacy icons, splash), Play 512, iOS 1024, Capacitor sources. `namamicleans` is the customer app, `namamian` the staff app.
+- `kit/dist/03-web-icons/<app>`: `favicon.ico`/`.svg`/`.png`, PWA icons (standard + maskable), Apple touch icon.
+- `kit/dist/04-social`: avatar, 1200 × 630 share image, 1584 × 396 banner.
+
+The package ships the SVG logos, app, web and social icons, so products copy them from `node_modules/@namami/tokens/kit/dist/…`. Never edit a generated file or export one by hand: change the generator, rebuild, release.
