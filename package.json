@@ -1,6 +1,6 @@
 {
   "name": "@namami/tokens",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Namami Cleans brand tokens: the single source of colour, type, spacing, radius and booking-status styling for every Namami Cleans product.",
   "private": true,
   "type": "module",
@@ -9,12 +9,15 @@
     "bin",
     "tokens.json",
     "kit/dist/01-logo/svg",
+    "kit/dist/01-logo/png/namamicleans-horizontal-primary@600w.png",
+    "kit/dist/01-logo/png/namamicleans-stacked-primary@600w.png",
     "kit/dist/02-app-icons",
     "kit/dist/03-web-icons",
     "kit/dist/04-social"
   ],
   "bin": {
-    "namami-lint": "bin/namami-lint.mjs"
+    "namami-lint": "bin/namami-lint.mjs",
+    "namami-assets": "bin/namami-assets.mjs"
   },
   "exports": {
     "./tokens.css": "./dist/tokens.css",

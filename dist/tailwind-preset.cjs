@@ -1,4 +1,4 @@
-/* @namami/tokens 2.0.0 — generated. Do not edit. */
+/* @namami/tokens 2.1.0 — generated. Do not edit. */
 module.exports = {
   "theme": {
     "extend": {
