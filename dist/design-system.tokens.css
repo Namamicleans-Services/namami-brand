@@ -1,25 +1,28 @@
-/* Namami Cleans — generated from tokens.json */
+/* Namamicleans — generated from tokens.json */
 :root, [data-theme="light"] {
-  --surface: #f6f3ef; /* Page background in every product. A warm linen white that matches the ground of our AI service images, so images and page read as one surface. */
+  --surface: #f9fafb; /* Page background in every product: Page Grey, a cool off-white (brand book). Text on it: `ink`, `ink-muted`. */
   --surface-raised: #ffffff; /* Cards, sheets, dialogs, table rows, inputs. Sits on `surface`. */
-  --surface-sunken: #ede8e1; /* Wells and grouped-list backgrounds, admin side panels, skeleton loaders. */
+  --surface-sunken: #f3f4f6; /* Wells and grouped-list backgrounds, admin side panels, skeleton loaders. */
   --surface-image: #f2ede9; /* Ground behind every AI service/category image (tiles, banners). Same value in both themes on purpose: our images are opaque with this exact background, so the tile looks like one object in light and dark. */
-  --line: #e2dcd4; /* Hairline dividers and card borders. Decorative only, never the sole boundary of a control. */
-  --control-border: #8a8379; /* Borders of inputs, checkboxes, selects and secondary buttons (3:1 on `surface` and `surface-raised`). */
+  --line: #e5e7eb; /* Hairline dividers and card borders. Decorative only, never the sole boundary of a control. */
+  --control-border: #80868e; /* Borders of inputs, checkboxes, selects and secondary buttons (3:1 on `surface` and `surface-raised`). */
   --ink: #0e2b33; /* Primary text and icons on `surface`, `surface-raised`, `surface-sunken`. */
   --ink-muted: #4b5f64; /* Secondary text: meta lines, helper text, placeholders, timestamps, table secondary columns. On `surface`, `surface-raised`, `surface-sunken`. Never the only carrier of something a person must act on (outdoors it drops below 7:1). */
-  --brand: #0b4251; /* Namami teal, the logo's own colour, and THE interactive colour: primary buttons, links (always underlined), checkboxes, radios, toggles, progress, selected tabs, active nav, app headers. Light theme uses the exact logo teal; dark lightens it so it stays visible. */
-  --brand-hover: #072f3a; /* Hover/pressed state of `brand` fills. */
+  --brand: #0f766e; /* Action Teal: THE interactive colour. Primary buttons, links (always underlined), checkboxes, radios, toggles, progress, selected tabs, active nav. Never the logo's colour and never a ground for the logo: that is `namami`. The Namamian app sets `data-brand="namamian"` on <html>, which maps the brand family back to Namami Teal for outdoor contrast (7:1). */
+  --brand-hover: #115e59; /* Hover/pressed state of `brand` fills. */
   --on-brand: #ffffff; /* Text and icons on `brand` and `brand-hover` fills. */
-  --brand-soft: #e2eef0; /* Selected rows, active chips, highlighted list items. Text on it is `brand` (light) / `ink` (dark). */
-  --brand-soft-ink: #0b4251; /* Text on `brand-soft`. */
+  --brand-soft: #f0fdfa; /* Selected rows, active chips, highlighted list items. Text on it is `brand` (light) / `ink` (dark). */
+  --brand-soft-ink: #115e59; /* Text on `brand-soft`. */
+  --namami: #0b4251; /* Namami Teal, the logo's own colour, as a surface: app headers, hero and cover panels, splash, social. The only ground the reversed (white + gold) logo sits on. Not for buttons or links (that is `brand`). */
+  --namami-hover: #072f3a; /* Pressed state of controls drawn on a `namami` panel. */
+  --on-namami: #ffffff; /* Text and icons on `namami`. Gold (`gold`) is also allowed on `namami` for the wordmark and highlights (6.76:1). */
   --uniform: #127578; /* Uniform teal: the dyed colour of Namamian uniforms and of the workers in our service images. FABRIC AND IMAGERY ONLY: never use it for interface controls, links or text (it blurs with `brand` on screen). Final value will be matched to the approved fabric shade card. */
   --on-uniform: #ffffff; /* Text on `uniform` fills in print and physical items (badges, lanyard print). Not used in the apps. */
-  --gold: #f1c764; /* Namami gold, the logo's own colour. Offers, savings, ratings, earnings: the one highlight per screen. A fill, never text on light surfaces, never a status. */
+  --gold: #efc663; /* Namami gold, the logo file's own colour. Offers, savings, ratings, earnings highlights. Never text on white or grey (1.6:1). */
   --on-gold: #0b4251; /* Text and icons on `gold` fills. On `gold-soft` use `gold-soft-ink`. */
   --gold-soft: #fbf1d6; /* Quiet gold background: offer strips, 'Popular' ribbons, savings rows. */
   --gold-soft-ink: #5c4410; /* Text on `gold-soft`. */
-  --focus: #0b4251; /* Focus ring: 2px solid, 2px offset, on every focusable element in every product, on `surface`, `surface-raised`, `surface-sunken` (≥7:1). */
+  --focus: #0f766e; /* Focus ring: 2px solid, 2px offset, on every focusable element in every product, on `surface`, `surface-raised`, `surface-sunken` (≥7:1). */
   --focus-on-brand: #f1c764; /* Focus ring for controls sitting on a `brand` fill (icon buttons in the teal app header). */
   --success: #1b6e45; /* Success text and icons (payment received, job completed). On `surface`, `surface-raised`. */
   --success-soft: #e1f2e8; /* Success notice/badge background. Text on it: `success-ink`. */
@@ -35,8 +38,8 @@
   --info-soft: #e3eef7; /* Info notice background. Text on it: `info-ink`. */
   --info-ink: #15466a; /* Text on `info-soft`. */
   --status-upcoming-bg: #ffffff; /* Status family UPCOMING (backend: received, scheduled, rescheduled): booked, not started. Outlined pill background. */
-  --status-upcoming-border: #0b4251; /* 1.5px outline of the UPCOMING pill (the outline itself is the cue that tells it apart). */
-  --status-upcoming-ink: #0b4251; /* Text/icon on `status-upcoming-bg`. */
+  --status-upcoming-border: #0f766e; /* 1.5px outline of the UPCOMING pill (the outline itself is the cue that tells it apart). */
+  --status-upcoming-ink: #0f766e; /* Text/icon on `status-upcoming-bg`. */
   --status-live-bg: #0b4251; /* Status family LIVE (backend: ongoing): a Namamian is working right now. Solid brand-teal pill. */
   --status-live-ink: #ffffff; /* Text/icon on `status-live-bg`. */
   --status-done-bg: #a8dcbc; /* Status family DONE (backend: completed). Solid green pill. */
@@ -61,6 +64,9 @@
   --on-brand: #062228;
   --brand-soft: #173840;
   --brand-soft-ink: #e9f0f1;
+  --namami: #0b4251;
+  --namami-hover: #072f3a;
+  --on-namami: #ffffff;
   --uniform: #5fc4c4;
   --on-uniform: #062228;
   --gold: #f1c764;

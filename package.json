@@ -1,6 +1,6 @@
 {
   "name": "@namami/tokens",
-  "version": "1.3.0",
+  "version": "2.0.0",
   "description": "Namami Cleans brand tokens: the single source of colour, type, spacing, radius and booking-status styling for every Namami Cleans product.",
   "private": true,
   "type": "module",

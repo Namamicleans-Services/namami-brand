@@ -1,45 +1,51 @@
-/* @namami/tokens 1.3.0 — generated from tokens.json by scripts/build.mjs. Do not edit. */
+/* @namami/tokens 2.0.0 — generated from tokens.json by scripts/build.mjs. Do not edit. */
 :root, [data-theme="light"] {
-  --surface: #f6f3ef; /* Page background in every product. A warm linen white that matches the ground of our AI service images, so images and page read as one surface. */
-  --surface-hsl: 34.3 28% 95.1%;
+  --surface: #f9fafb; /* Page background in every product: Page Grey, a cool off-white (brand book). Text on it: `ink`, `ink-muted`. */
+  --surface-hsl: 210 20% 98%;
   --surface-raised: #ffffff; /* Cards, sheets, dialogs, table rows, inputs. Sits on `surface`. */
   --surface-raised-hsl: 0 0% 100%;
-  --surface-sunken: #ede8e1; /* Wells and grouped-list backgrounds, admin side panels, skeleton loaders. */
-  --surface-sunken-hsl: 35 25% 90.6%;
+  --surface-sunken: #f3f4f6; /* Wells and grouped-list backgrounds, admin side panels, skeleton loaders. */
+  --surface-sunken-hsl: 220 14.3% 95.9%;
   --surface-image: #f2ede9; /* Ground behind every AI service/category image (tiles, banners). Same value in both themes on purpose: our images are opaque with this exact background, so the tile looks like one object in light and dark. */
   --surface-image-hsl: 26.7 25.7% 93.1%;
-  --line: #e2dcd4; /* Hairline dividers and card borders. Decorative only, never the sole boundary of a control. */
-  --line-hsl: 34.3 19.4% 85.9%;
-  --control-border: #8a8379; /* Borders of inputs, checkboxes, selects and secondary buttons (3:1 on `surface` and `surface-raised`). */
-  --control-border-hsl: 35.3 6.8% 50.8%;
+  --line: #e5e7eb; /* Hairline dividers and card borders. Decorative only, never the sole boundary of a control. */
+  --line-hsl: 220 13% 91%;
+  --control-border: #80868e; /* Borders of inputs, checkboxes, selects and secondary buttons (3:1 on `surface` and `surface-raised`). */
+  --control-border-hsl: 214.3 5.8% 52.9%;
   --ink: #0e2b33; /* Primary text and icons on `surface`, `surface-raised`, `surface-sunken`. */
   --ink-hsl: 193 56.9% 12.7%;
   --ink-muted: #4b5f64; /* Secondary text: meta lines, helper text, placeholders, timestamps, table secondary columns. On `surface`, `surface-raised`, `surface-sunken`. Never the only carrier of something a person must act on (outdoors it drops below 7:1). */
   --ink-muted-hsl: 192 14.3% 34.3%;
-  --brand: #0b4251; /* Namami teal, the logo's own colour, and THE interactive colour: primary buttons, links (always underlined), checkboxes, radios, toggles, progress, selected tabs, active nav, app headers. Light theme uses the exact logo teal; dark lightens it so it stays visible. */
-  --brand-hsl: 192.9 76.1% 18%;
-  --brand-hover: #072f3a; /* Hover/pressed state of `brand` fills. */
-  --brand-hover-hsl: 192.9 78.5% 12.7%;
+  --brand: #0f766e; /* Action Teal: THE interactive colour. Primary buttons, links (always underlined), checkboxes, radios, toggles, progress, selected tabs, active nav. Never the logo's colour and never a ground for the logo: that is `namami`. The Namamian app sets `data-brand="namamian"` on <html>, which maps the brand family back to Namami Teal for outdoor contrast (7:1). */
+  --brand-hsl: 175.3 77.4% 26.1%;
+  --brand-hover: #115e59; /* Hover/pressed state of `brand` fills. */
+  --brand-hover-hsl: 176.1 69.4% 21.8%;
   --on-brand: #ffffff; /* Text and icons on `brand` and `brand-hover` fills. */
   --on-brand-hsl: 0 0% 100%;
-  --brand-soft: #e2eef0; /* Selected rows, active chips, highlighted list items. Text on it is `brand` (light) / `ink` (dark). */
-  --brand-soft-hsl: 188.6 31.8% 91.4%;
-  --brand-soft-ink: #0b4251; /* Text on `brand-soft`. */
-  --brand-soft-ink-hsl: 192.9 76.1% 18%;
+  --brand-soft: #f0fdfa; /* Selected rows, active chips, highlighted list items. Text on it is `brand` (light) / `ink` (dark). */
+  --brand-soft-hsl: 166.2 76.5% 96.7%;
+  --brand-soft-ink: #115e59; /* Text on `brand-soft`. */
+  --brand-soft-ink-hsl: 176.1 69.4% 21.8%;
+  --namami: #0b4251; /* Namami Teal, the logo's own colour, as a surface: app headers, hero and cover panels, splash, social. The only ground the reversed (white + gold) logo sits on. Not for buttons or links (that is `brand`). */
+  --namami-hsl: 192.9 76.1% 18%;
+  --namami-hover: #072f3a; /* Pressed state of controls drawn on a `namami` panel. */
+  --namami-hover-hsl: 192.9 78.5% 12.7%;
+  --on-namami: #ffffff; /* Text and icons on `namami`. Gold (`gold`) is also allowed on `namami` for the wordmark and highlights (6.76:1). */
+  --on-namami-hsl: 0 0% 100%;
   --uniform: #127578; /* Uniform teal: the dyed colour of Namamian uniforms and of the workers in our service images. FABRIC AND IMAGERY ONLY: never use it for interface controls, links or text (it blurs with `brand` on screen). Final value will be matched to the approved fabric shade card. */
   --uniform-hsl: 181.8 73.9% 27.1%;
   --on-uniform: #ffffff; /* Text on `uniform` fills in print and physical items (badges, lanyard print). Not used in the apps. */
   --on-uniform-hsl: 0 0% 100%;
-  --gold: #f1c764; /* Namami gold, the logo's own colour. Offers, savings, ratings, earnings: the one highlight per screen. A fill, never text on light surfaces, never a status. */
-  --gold-hsl: 42.1 83.4% 66.9%;
+  --gold: #efc663; /* Namami gold, the logo file's own colour. Offers, savings, ratings, earnings highlights. Never text on white or grey (1.6:1). */
+  --gold-hsl: 42.4 81.4% 66.3%;
   --on-gold: #0b4251; /* Text and icons on `gold` fills. On `gold-soft` use `gold-soft-ink`. */
   --on-gold-hsl: 192.9 76.1% 18%;
   --gold-soft: #fbf1d6; /* Quiet gold background: offer strips, 'Popular' ribbons, savings rows. */
   --gold-soft-hsl: 43.8 82.2% 91.2%;
   --gold-soft-ink: #5c4410; /* Text on `gold-soft`. */
   --gold-soft-ink-hsl: 41.1 70.4% 21.2%;
-  --focus: #0b4251; /* Focus ring: 2px solid, 2px offset, on every focusable element in every product, on `surface`, `surface-raised`, `surface-sunken` (≥7:1). */
-  --focus-hsl: 192.9 76.1% 18%;
+  --focus: #0f766e; /* Focus ring: 2px solid, 2px offset, on every focusable element in every product, on `surface`, `surface-raised`, `surface-sunken` (≥7:1). */
+  --focus-hsl: 175.3 77.4% 26.1%;
   --focus-on-brand: #f1c764; /* Focus ring for controls sitting on a `brand` fill (icon buttons in the teal app header). */
   --focus-on-brand-hsl: 42.1 83.4% 66.9%;
   --success: #1b6e45; /* Success text and icons (payment received, job completed). On `surface`, `surface-raised`. */
@@ -70,10 +76,10 @@
   --info-ink-hsl: 205.4 66.9% 24.9%;
   --status-upcoming-bg: #ffffff; /* Status family UPCOMING (backend: received, scheduled, rescheduled): booked, not started. Outlined pill background. */
   --status-upcoming-bg-hsl: 0 0% 100%;
-  --status-upcoming-border: #0b4251; /* 1.5px outline of the UPCOMING pill (the outline itself is the cue that tells it apart). */
-  --status-upcoming-border-hsl: 192.9 76.1% 18%;
-  --status-upcoming-ink: #0b4251; /* Text/icon on `status-upcoming-bg`. */
-  --status-upcoming-ink-hsl: 192.9 76.1% 18%;
+  --status-upcoming-border: #0f766e; /* 1.5px outline of the UPCOMING pill (the outline itself is the cue that tells it apart). */
+  --status-upcoming-border-hsl: 175.3 77.4% 26.1%;
+  --status-upcoming-ink: #0f766e; /* Text/icon on `status-upcoming-bg`. */
+  --status-upcoming-ink-hsl: 175.3 77.4% 26.1%;
   --status-live-bg: #0b4251; /* Status family LIVE (backend: ongoing): a Namamian is working right now. Solid brand-teal pill. */
   --status-live-bg-hsl: 192.9 76.1% 18%;
   --status-live-ink: #ffffff; /* Text/icon on `status-live-bg`. */
@@ -118,6 +124,12 @@
   --brand-soft-hsl: 191.7 47.1% 17.1%;
   --brand-soft-ink: #e9f0f1;
   --brand-soft-ink-hsl: 187.5 22.2% 92.9%;
+  --namami: #0b4251;
+  --namami-hsl: 192.9 76.1% 18%;
+  --namami-hover: #072f3a;
+  --namami-hover-hsl: 192.9 78.5% 12.7%;
+  --on-namami: #ffffff;
+  --on-namami-hsl: 0 0% 100%;
   --uniform: #5fc4c4;
   --uniform-hsl: 180 46.1% 57.1%;
   --on-uniform: #062228;
@@ -181,6 +193,23 @@
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
   --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.45);
   --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.55);
+}
+/* Set data-brand="namamian" on <html> in the Namamian app. Light theme only. */
+[data-brand="namamian"] {
+  --brand: #0b4251;
+  --brand-hsl: 192.9 76.1% 18%;
+  --brand-hover: #072f3a;
+  --brand-hover-hsl: 192.9 78.5% 12.7%;
+  --brand-soft: #e2eef0;
+  --brand-soft-hsl: 188.6 31.8% 91.4%;
+  --brand-soft-ink: #0b4251;
+  --brand-soft-ink-hsl: 192.9 76.1% 18%;
+  --focus: #0b4251;
+  --focus-hsl: 192.9 76.1% 18%;
+  --status-upcoming-border: #0b4251;
+  --status-upcoming-border-hsl: 192.9 76.1% 18%;
+  --status-upcoming-ink: #0b4251;
+  --status-upcoming-ink-hsl: 192.9 76.1% 18%;
 }
 :root {
   --space-0\.5: 2px;

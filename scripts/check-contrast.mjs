@@ -28,7 +28,8 @@ const lightness = (hex) => {
 const PAIRS = [
   ['ink', 'surface', 7], ['ink', 'surface-raised', 7], ['ink', 'surface-sunken', 7],
   ['ink-muted', 'surface', 4.5], ['ink-muted', 'surface-raised', 4.5], ['ink-muted', 'surface-sunken', 4.5],
-  ['brand', 'surface', 7], ['brand', 'surface-raised', 7],
+  ['brand', 'surface', 4.5], ['brand', 'surface-raised', 4.5],
+  ['on-namami', 'namami', 7], ['gold', 'namami', 4.5],
   ['on-brand', 'brand', 4.5], ['on-brand', 'brand-hover', 4.5], ['brand-soft-ink', 'brand-soft', 4.5],
   ['on-gold', 'gold', 4.5], ['gold-soft-ink', 'gold-soft', 4.5],
   ['focus', 'surface', 3], ['focus', 'surface-raised', 3], ['focus', 'surface-sunken', 3], ['focus-on-brand', 'brand', 3],
@@ -40,25 +41,34 @@ const PAIRS = [
   ['status-live-ink', 'status-live-bg', 4.5], ['status-done-ink', 'status-done-bg', 4.5], ['status-stopped-ink', 'status-stopped-bg', 4.5],
 ];
 const FAMILIES = ['upcoming', 'live', 'done', 'stopped'];
+// Brand themes (the Namamian app) keep the outdoor rule: brand text at 7:1.
+const BRAND_THEME_PAIRS = [['brand', 'surface', 7], ['brand', 'surface-raised', 7]];
 
-const val = (name, theme) => {
+// Each variant is a theme, or a brand theme layered over the light theme.
+const variants = [
+  ...themes.map((id) => ({ id, base: id, over: {}, pairs: PAIRS })),
+  ...(tokens.color.brandThemes ?? []).map((bt) => ({ id: bt.id, base: themes[0], over: bt.values, pairs: [...PAIRS, ...BRAND_THEME_PAIRS] })),
+];
+
+const val = (name, variant) => {
+  if (variant.over[name]) return variant.over[name];
   const v = byName[name];
   if (v === undefined) throw new Error(`unknown token ${name}`);
-  return typeof v === 'string' ? v : v[theme] ?? v[themes[0]];
+  return typeof v === 'string' ? v : v[variant.base] ?? v[themes[0]];
 };
 
 let failures = 0;
-for (const theme of themes) {
-  for (const [fg, bg, min] of PAIRS) {
+for (const theme of variants) {
+  for (const [fg, bg, min] of theme.pairs) {
     const r = ratio(val(fg, theme), val(bg, theme));
-    if (r < min) { failures++; console.error(`FAIL ${theme}: ${fg} on ${bg} = ${r.toFixed(2)}:1 (needs ${min})`); }
+    if (r < min) { failures++; console.error(`FAIL ${theme.id}: ${fg} on ${bg} = ${r.toFixed(2)}:1 (needs ${min})`); }
   }
   for (let i = 0; i < FAMILIES.length; i++) {
     for (let j = i + 1; j < FAMILIES.length; j++) {
       const d = Math.abs(lightness(val(`status-${FAMILIES[i]}-bg`, theme)) - lightness(val(`status-${FAMILIES[j]}-bg`, theme)));
-      if (d < 15) { failures++; console.error(`FAIL ${theme}: status ${FAMILIES[i]} vs ${FAMILIES[j]} ΔL* ${d.toFixed(1)} (needs 15)`); }
+      if (d < 15) { failures++; console.error(`FAIL ${theme.id}: status ${FAMILIES[i]} vs ${FAMILIES[j]} ΔL* ${d.toFixed(1)} (needs 15)`); }
     }
   }
 }
-console.log(`${PAIRS.length * themes.length} contrast pairs and ${6 * themes.length} status-family pairs checked, ${failures} failures`);
+console.log(`${variants.reduce((n, v) => n + v.pairs.length, 0)} contrast pairs and ${6 * variants.length} status-family pairs checked (${variants.map((v) => v.id).join(', ')}), ${failures} failures`);
 process.exit(failures ? 1 : 0);
