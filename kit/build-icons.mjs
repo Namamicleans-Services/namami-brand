@@ -25,6 +25,7 @@ const SHARE = {
   splashIcon: 0.4, // Android 12+ splash icon: 288dp canvas, centre 192dp shown
   favicon: 0.7, // browser tabs (16-48 px): a bigger drop so it still reads
   badge: 0.8, // notification badge: a white silhouette, as large as it can be
+  statusBar: 0.84, // notification icon in the status bar: 20dp of a 24dp box
   splash: 0.28, // full-screen splash: share of the shorter side
 };
 const TILE_RADIUS = 0.22; // corner radius of our own rounded tiles, share of the side
@@ -43,7 +44,7 @@ function write(file, data) {
   fs.writeFileSync(file, data);
 }
 
-const DENSITIES = { mdpi: 1, hdpi: 1.5, xhdpi: 2, xxhdpi: 3, xxxhdpi: 4 };
+const DENSITIES = { ldpi: 0.75, mdpi: 1, hdpi: 1.5, xhdpi: 2, xxhdpi: 3, xxxhdpi: 4 };
 
 // Android adaptive icon XML: full-size layers, no inset (the foreground art
 // already sits inside the safe zone).
@@ -70,6 +71,13 @@ function androidIcons(app, spec) {
     write(path.join(dir, m, 'ic_launcher.png'), png(tile({ size: legacy, ground: spec.ground, drop: spec.drop, share: SHARE.rounded, radius: TILE_RADIUS }), legacy));
     write(path.join(dir, m, 'ic_launcher_round.png'), png(tile({ size: legacy, ground: spec.ground, drop: spec.drop, share: SHARE.rounded, radius: 0.5 }), legacy));
   }
+  // Push notifications: Android draws only the silhouette in the status bar
+  // (24dp, referenced by Firebase's default_notification_icon).
+  for (const [density, scale] of Object.entries(DENSITIES)) {
+    if (density === 'ldpi') continue;
+    const size = Math.round(24 * scale);
+    write(path.join(dir, `drawable-${density}/ic_stat_notify.png`), png(tile({ size: size * 4, drop: MONO, share: SHARE.statusBar }), size));
+  }
   for (const xml of ['ic_launcher.xml', 'ic_launcher_round.xml']) write(path.join(dir, 'mipmap-anydpi-v26', xml), ADAPTIVE_XML);
   write(path.join(dir, 'drawable-nodpi/splash_icon.png'), png(tile({ size: 1152, drop: spec.drop, share: SHARE.splashIcon }), 1152));
 }
@@ -88,8 +96,13 @@ function storeAndOsIcons(app, spec) {
 }
 
 // Splash screens: the brand ground with the drop centred.
-const SPLASHES = { port: [[320, 480], [480, 800], [720, 1280], [960, 1600], [1280, 1920]], land: [[480, 320], [800, 480], [1280, 720], [1600, 960], [1920, 1280]] };
-const SPLASH_DPI = ['ldpi', 'mdpi', 'hdpi', 'xhdpi', 'xxhdpi'];
+// Capacitor's splash sizes per density; the night variants (pre-Android-12 dark
+// mode) are the same image: dark mode isn't shipped.
+const SPLASH_DPI = ['ldpi', 'mdpi', 'hdpi', 'xhdpi', 'xxhdpi', 'xxxhdpi'];
+const SPLASHES = {
+  port: [[240, 320], [320, 480], [480, 800], [720, 1280], [960, 1600], [1280, 1920]],
+  land: [[320, 240], [480, 320], [800, 480], [1280, 720], [1600, 960], [1920, 1280]],
+};
 
 function splashes(app, spec) {
   const dir = path.join(OUT, '02-app-icons', app, 'android/res');
@@ -100,9 +113,15 @@ function splashes(app, spec) {
     return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}"><rect width="100%" height="100%" fill="${spec.ground}"/>${d.svg}</svg>`;
   };
   for (const [orient, sizes] of Object.entries(SPLASHES)) {
-    sizes.forEach(([w, h], i) => write(path.join(dir, `drawable-${orient}-${SPLASH_DPI[i]}/splash.png`), png(make(w, h), w)));
+    sizes.forEach(([w, h], i) => {
+      const image = png(make(w, h), w);
+      write(path.join(dir, `drawable-${orient}-${SPLASH_DPI[i]}/splash.png`), image);
+      write(path.join(dir, `drawable-${orient}-night-${SPLASH_DPI[i]}/splash.png`), image);
+    });
   }
-  write(path.join(dir, 'drawable/splash.png'), png(make(480, 320), 480));
+  const base = png(make(480, 320), 480);
+  write(path.join(dir, 'drawable/splash.png'), base);
+  write(path.join(dir, 'drawable-night/splash.png'), base);
 }
 
 // favicon.ico holding PNG images (supported by every current browser).
