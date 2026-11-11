@@ -62,10 +62,16 @@ function colorBlock(theme, withUsage) {
     return `  --${t.name}: ${v};${usage}\n  --${t.name}-hsl: ${hexToHslTriplet(v)};`;
   }).join('\n') + '\n' + shadows.map((t) => `  --${t.name}: ${valueIn(t, theme)};`).join('\n');
 }
+// Brand themes remap a few tokens for one product, e.g. the Namamian app's
+// <html data-brand="namamian">. Emitted after :root so they win at equal specificity.
+const brandThemeBlocks = (tokens.color.brandThemes ?? []).map((bt) =>
+  `/* ${bt.usage} */\n[data-brand="${bt.id}"] {\n` +
+  Object.entries(bt.values).map(([n, v]) => `  --${n}: ${v};\n  --${n}-hsl: ${hexToHslTriplet(v)};`).join('\n') + '\n}\n').join('');
 const typeStyles = tokens.type.groups.flatMap((g) => g.styles.map((s) => ({ ...s, family: s.family ?? g.family })));
 out('tokens.css', header +
   `:root, [data-theme="${light}"] {\n${colorBlock(light, true)}\n}\n` +
   `/* Dark values exist but dark mode is not shipped in v1.1. */\n[data-theme="${dark}"] {\n${colorBlock(dark, false)}\n}\n` +
+  brandThemeBlocks +
   `:root {\n${scalars.map((t) => `  --${cssName(t.name)}: ${t.value};`).join('\n')}\n` +
   Object.entries(FONT_STACKS).map(([k, v]) => `  --font-${k}: ${v};`).join('\n') + '\n}\n');
 

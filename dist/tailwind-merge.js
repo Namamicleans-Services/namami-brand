@@ -1,4 +1,4 @@
-/* @namami/tokens 1.3.0 — generated. Do not edit. */
+/* @namami/tokens 2.0.0 — generated. Do not edit. */
 /** Pass to extendTailwindMerge() (tailwind-merge v2 or v3) so cn() understands brand utilities. */
 export const namamiTwMergeConfig = {
   "extend": {

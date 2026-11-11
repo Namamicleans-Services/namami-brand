@@ -1,4 +1,4 @@
-/* @namami/tokens 1.3.0 — generated. Do not edit. */
+/* @namami/tokens 2.0.0 — generated. Do not edit. */
 module.exports = {
   "theme": {
     "extend": {
@@ -16,6 +16,9 @@ module.exports = {
         "on-brand": "hsl(var(--on-brand-hsl) / <alpha-value>)",
         "brand-soft": "hsl(var(--brand-soft-hsl) / <alpha-value>)",
         "brand-soft-ink": "hsl(var(--brand-soft-ink-hsl) / <alpha-value>)",
+        "namami": "hsl(var(--namami-hsl) / <alpha-value>)",
+        "namami-hover": "hsl(var(--namami-hover-hsl) / <alpha-value>)",
+        "on-namami": "hsl(var(--on-namami-hsl) / <alpha-value>)",
         "uniform": "hsl(var(--uniform-hsl) / <alpha-value>)",
         "on-uniform": "hsl(var(--on-uniform-hsl) / <alpha-value>)",
         "gold": "hsl(var(--gold-hsl) / <alpha-value>)",

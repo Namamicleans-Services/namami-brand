@@ -24,6 +24,7 @@ const SHARE = {
   maskable: 0.5, // PWA maskable: stays inside the 80% safe circle
   splashIcon: 0.4, // Android 12+ splash icon: 288dp canvas, centre 192dp shown
   favicon: 0.7, // browser tabs (16-48 px): a bigger drop so it still reads
+  badge: 0.8, // notification badge: a white silhouette, as large as it can be
   splash: 0.28, // full-screen splash: share of the shorter side
 };
 const TILE_RADIUS = 0.22; // corner radius of our own rounded tiles, share of the side
@@ -137,6 +138,8 @@ function webIcons(app, spec) {
     write(path.join(dir, `icon-${size}-maskable.png`), png(tile({ size, ground: spec.ground, drop: spec.drop, share: SHARE.maskable }), size));
   }
   write(path.join(dir, 'apple-touch-icon.png'), png(tile({ size: 180, ground: spec.ground, drop: spec.drop, share: SHARE.square }), 180));
+  // Notification badge: Android shows only its silhouette in the status bar.
+  write(path.join(dir, 'badge-96.png'), png(tile({ size: 96, drop: MONO, share: SHARE.badge }), 96));
 }
 
 function social() {
