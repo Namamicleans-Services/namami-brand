@@ -88,3 +88,21 @@ cd kit && npm install && npm run build   # in Docker: node:22
 - `kit/dist/04-social`: avatar, 1200 × 630 share image, 1584 × 396 banner.
 
 The package ships the SVG logos, app, web and social icons, so products copy them from `node_modules/@namami/tokens/kit/dist/…`. Never edit a generated file or export one by hand: change the generator, rebuild, release.
+
+### Keeping apps in step
+
+Each app lists the kit files it uses in `brand-assets.json`, mapping its own path to a path under `kit/dist`:
+
+```json
+{
+  "files": { "public/brand/favicon.ico": "03-web-icons/namamicleans/favicon.ico" },
+  "dirs": { "android/app/src/main/res": "02-app-icons/namamicleans/android/res" }
+}
+```
+
+```bash
+npx namami-assets check   # fails if a listed file is missing or differs from the kit
+npx namami-assets sync    # copies the kit's files into place
+```
+
+`check` runs in each app's deploy workflow next to `lint:brand`, so an icon can't drift from the kit. After a kit release, bump `@namami/tokens`, run `sync`, commit.
