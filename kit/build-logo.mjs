@@ -1,4 +1,4 @@
-// Builds every Namamicleans logo file from two masters: the drop (src/drop.svg)
+// Builds every Namami Cleans logo file from two masters: the drop (src/drop.svg)
 // and the wordmark, set in Poppins SemiBold and converted to outlines here so
 // it can never be retyped. Run with `npm run kit` (Docker: node:22).
 import fs from 'node:fs';
@@ -21,7 +21,7 @@ const DROP_SRC = fs.readFileSync(path.join(KIT, 'src/drop.svg'), 'utf8');
 const DROP_BOX = { w: 2072, h: 2704 };
 const dropInner = DROP_SRC.replace(/^[\s\S]*?<svg[^>]*>/, '').replace(/<\/svg>\s*$/, '');
 
-/** body/accent: the drop's two colours. word/wordAccent: "Namami" and "cleans". */
+/** body/accent: the drop's two colours. word/wordAccent: "Namami" and "Cleans". */
 export const COLOURWAYS = {
   primary: { body: COLOURS.teal, accent: COLOURS.gold, word: COLOURS.teal, wordAccent: COLOURS.teal, ground: COLOURS.white },
   reversed: { body: COLOURS.white, accent: COLOURS.gold, word: COLOURS.white, wordAccent: COLOURS.gold, ground: COLOURS.teal },
@@ -38,10 +38,10 @@ export function dropSvg(colourway, x, y, height) {
   return { width, svg: `<svg x="${x}" y="${y}" width="${width}" height="${height}" viewBox="0 0 ${DROP_BOX.w} ${DROP_BOX.h}">${art}</svg>` };
 }
 
-// Wordmark: "Namami" + "cleans", Poppins 600, tracking -0.01em.
+// Wordmark: "Namami Cleans" (the service brand; Namamicleans is the parent company), Poppins 600, tracking -0.01em.
 const FONT = opentype.loadSync(path.join(KIT, 'src/fonts/poppins-latin-600-normal.woff'));
-const NAME = 'Namamicleans';
-const SPLIT = 'Namami'.length;
+const NAME = 'Namami Cleans';
+const SPLIT = 'Namami '.length;
 const TRACKING = -0.01;
 
 function wordmarkGlyphs(fontSize) {
