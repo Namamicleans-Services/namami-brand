@@ -76,6 +76,8 @@ The brand owner approves every change.
 
 ## Logo and icon files (the kit)
 
+Two names share one drawing system: `namamicleans-*` files carry the service brand **Namami Cleans** (customer app, site, emails); `namamicleans-company-*` files carry the parent company **Namamicleans** (staff app "Namamicleans Team", legal and corporate use).
+
 `kit/` generates every logo and icon from two masters: the drop (`kit/src/drop.svg`) and the wordmark, set in Poppins SemiBold and outlined so it can't be retyped.
 
 ```bash
